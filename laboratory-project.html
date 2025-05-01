@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Engineering Laboratory Simulator | Prateek Saxena</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Project Page Specific Styles */
+        .project-hero {
+            padding: 8rem 0 4rem;
+            position: relative;
+        }
+        
+        .project-section {
+            padding: 5rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .lab-module {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            transition: transform var(--animation-medium) ease, box-shadow var(--animation-medium) ease;
+        }
+        
+        .lab-module:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(32, 178, 174, 0.3);
+        }
+        
+        .feature-card {
+            background-color: rgba(10, 16, 30, 0.5);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.1);
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(32, 178, 174, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .icon-circle i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .workflow-step {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .workflow-step:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--gold), rgba(224, 194, 159, 0.1));
+        }
+        
+        .workflow-step:last-child:before {
+            height: 50%;
+        }
+        
+        .workflow-step .step-number {
+            position: absolute;
+            left: -15px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--turquoise);
+            color: var(--text-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .back-button:hover {
+            background-color: var(--turquoise);
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+        
+        .ui-showcase {
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: rgba(32, 178, 174, 0.2);
+            color: var(--turquoise);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars"></div>
+
+    <!-- Back to Projects Button -->
+    <a href="index.html#projects" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h1 class="text-center mb-5" data-aos="fade-up">Chemical Engineering Laboratory Simulator</h1>
+                    <div class="card p-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row g-4">
+                            <div class="col-lg-8">
+                                <h2 class="mb-4">Project Overview</h2>
+                                <p>
+                                    The Chemical Engineering Laboratory Simulator is an interactive educational platform designed to provide hands-on virtual laboratory experience for chemical engineering students. This simulator enables students to perform complex experiments, analyze data, and master laboratory techniques in a safe, accessible, and cost-effective virtual environment.
+                                </p>
+                                <p>
+                                    Developed with a focus on pedagogical effectiveness, the simulator incorporates real-world chemical engineering principles and laboratory protocols, allowing students to gain practical experience without the constraints of physical laboratory access, material costs, or safety concerns.
+                                </p>
+                                <div class="my-4">
+                                    <span class="tag">Educational Technology</span>
+                                    <span class="tag">Chemical Engineering</span>
+                                    <span class="tag">Interactive Simulation</span>
+                                    <span class="tag">Virtual Laboratory</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 d-flex align-items-center justify-content-center">
+                                <img src="laboratory project.png" alt="Laboratory Simulator" class="img-fluid rounded shadow">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Laboratory Modules Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Laboratory Modules</h2>
+            <div class="row g-4">
+                <!-- Module 1 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="lab-module">
+                        <div class="icon-circle">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3 class="text-center mb-4">Fluid Mechanics</h3>
+                        <p>
+                            Virtual experiments focusing on fluid behavior and properties:
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Flow measurement techniques</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Pressure drop in pipe systems</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Pump characteristic curves</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Reynolds number determination</li>
+                        </ul>
+                        <div class="d-flex justify-content-between mt-4">
+                            <div class="text-muted">
+                                Experiments: 5
+                            </div>
+                            <div class="text-turquoise">
+                                Difficulty: Intermediate
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Module 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="lab-module">
+                        <div class="icon-circle">
+                            <i class="fas fa-temperature-high"></i>
+                        </div>
+                        <h3 class="text-center mb-4">Heat Transfer</h3>
+                        <p>
+                            Simulations exploring heat transfer mechanisms:
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Conduction through composite walls</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Heat exchanger performance</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Natural and forced convection</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Thermal radiation effects</li>
+                        </ul>
+                        <div class="d-flex justify-content-between mt-4">
+                            <div class="text-muted">
+                                Experiments: 6
+                            </div>
+                            <div class="text-turquoise">
+                                Difficulty: Advanced
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Module 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="lab-module">
+                        <div class="icon-circle">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <h3 class="text-center mb-4">Reaction Kinetics</h3>
+                        <p>
+                            Virtual reaction kinetics experiments:
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Reaction rate determination</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Activation energy calculation</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Reactor design principles</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Catalyst effect analysis</li>
+                        </ul>
+                        <div class="d-flex justify-content-between mt-4">
+                            <div class="text-muted">
+                                Experiments: 4
+                            </div>
+                            <div class="text-turquoise">
+                                Difficulty: Advanced
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UI Showcase Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">User Interface</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div class="card p-4 mb-5">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h3 class="mb-4">Interactive & Intuitive Design</h3>
+                                <p>
+                                    The simulator features a comprehensive interface that combines realistic laboratory visuals with intuitive controls, designed to maximize both educational value and user experience.
+                                </p>
+                                <h5 class="mt-4 mb-3">Interface Components:</h5>
+                                <ul>
+                                    <li class="mb-2">Interactive 3D laboratory environment</li>
+                                    <li class="mb-2">Realistic equipment manipulation controls</li>
+                                    <li class="mb-2">Real-time data visualization tools</li>
+                                    <li class="mb-2">Customizable experimental parameters</li>
+                                    <li class="mb-2">Integrated notebook for observations</li>
+                                    <li class="mb-2">Comprehensive help system and tutorials</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ui-showcase">
+                                    <img src="laboratory project.png" alt="Laboratory Simulator Interface" class="img-fluid rounded">
+                                </div>
+                                <div class="text-center mt-3 text-muted">
+                                    <small>Heat exchanger experiment interface with real-time data visualization</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Experiment Workflow</h2>
+            <div class="card p-4" data-aos="fade-up">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="workflow-step">
+                            <div class="step-number">1</div>
+                            <h3>Experiment Selection & Setup</h3>
+                            <p>Students select from available laboratory modules and configure experimental parameters based on learning objectives. The simulator provides pre-lab materials and safety briefings tailored to each experiment.</p>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-number">2</div>
+                            <h3>Apparatus Assembly</h3>
+                            <p>Using the 3D interactive interface, students assemble required equipment and connect various components according to experimental protocols. The system includes validation checks to ensure proper setup.</p>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-number">3</div>
+                            <h3>Experimental Procedure</h3>
+                            <p>Students conduct the experiment by manipulating controls, adjusting parameters, and observing system responses. Real-time data is collected and displayed through multiple visualization methods.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="workflow-step">
+                            <div class="step-number">4</div>
+                            <h3>Data Analysis</h3>
+                            <p>Collected data can be processed using integrated analysis tools that allow for statistical calculations, graphing, and model fitting. Students can export data for further analysis in external applications.</p>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-number">5</div>
+                            <h3>Report Generation</h3>
+                            <p>The simulator includes templates for laboratory reports where students document procedures, observations, results, and conclusions. These reports can be saved, printed, or submitted directly to instructors.</p>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-number">6</div>
+                            <h3>Assessment & Feedback</h3>
+                            <p>Built-in assessment tools evaluate student performance based on procedure adherence, accuracy of results, and understanding of concepts. Detailed feedback is provided to help students identify areas for improvement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Key Features</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <h3 class="mb-4">Educational Design</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Curriculum-aligned experiments</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Progressive learning path</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Conceptual reinforcement</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Troubleshooting scenarios</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Error analysis training</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <h3 class="mb-4">Technical Highlights</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Physics-based simulation engine</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> High-fidelity 3D visualization</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Customizable simulation parameters</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Advanced numerical methods</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Cross-platform compatibility</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <h3 class="mb-4">Administrative Tools</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Student progress tracking</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Performance analytics</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Customizable assessment criteria</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Course integration options</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Learning management system (LMS) compatibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Impact Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Educational Impact</h2>
+            <div class="card p-4" data-aos="fade-up">
+                <div class="row g-4">
+                    <div class="col-lg-12">
+                        <p>
+                            The Chemical Engineering Laboratory Simulator has been implemented in several educational institutions, demonstrating significant benefits for both students and educators:
+                        </p>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Student Benefits</h4>
+                                <ul>
+                                    <li class="mb-2">Increased practical understanding of theoretical concepts</li>
+                                    <li class="mb-2">Development of laboratory skills without time constraints</li>
+                                    <li class="mb-2">Safe exploration of hazardous experimental scenarios</li>
+                                    <li class="mb-2">24/7 access to laboratory experiences</li>
+                                    <li class="mb-2">Ability to repeat experiments and test different parameters</li>
+                                    <li class="mb-2">Enhanced preparation for physical laboratory sessions</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Institutional Benefits</h4>
+                                <ul>
+                                    <li class="mb-2">Reduced physical laboratory costs and equipment maintenance</li>
+                                    <li class="mb-2">Increased capacity for laboratory education</li>
+                                    <li class="mb-2">Standardized learning experiences across student groups</li>
+                                    <li class="mb-2">Enhanced remote and distance learning capabilities</li>
+                                    <li class="mb-2">Detailed analytics on student performance</li>
+                                    <li class="mb-2">Reduced environmental impact from chemical waste</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-dark p-3 rounded mt-4">
+                            <h5 class="text-center mb-3">Implementation Results</h5>
+                            <div class="row text-center">
+                                <div class="col-sm-3">
+                                    <h2 class="text-turquoise">89%</h2>
+                                    <p>Students reported improved understanding</p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h2 class="text-turquoise">65%</h2>
+                                    <p>Reduction in laboratory material costs</p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h2 class="text-turquoise">94%</h2>
+                                    <p>Instructors found simulator effective</p>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h2 class="text-turquoise">3.2x</h2>
+                                    <p>Increase in experiment repetition</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Development Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Future Development</h2>
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="card h-100 p-4">
+                        <h3 class="mb-4">Planned Enhancements</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Virtual reality (VR) implementation for immersive laboratory experience</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Collaborative multi-user experiments for team-based learning</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Integration with AI for personalized guidance and feedback</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Expanded module library covering additional chemical engineering domains</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Integration with physical laboratory sensors for hybrid learning experiences</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100 p-4">
+                        <h3 class="mb-4">Research Opportunities</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Effectiveness studies comparing virtual and physical laboratory learning outcomes</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Pedagogical research on optimal virtual laboratory design principles</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Adaptive learning algorithm development for personalized laboratory experiences</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Cross-disciplinary applications in related engineering fields</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Development of standardized assessment methodologies for virtual laboratory skills</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-5 mb-4">
+        <div class="card p-3" style="border: 1px solid #20B2AE; background-color: rgba(10, 16, 30, 0.7);">
+            <div class="text-center" style="font-size: 0.95rem; color: #e2e8f0;">
+                <p><strong>Note:</strong> This project is officially registered as part of my academic coursework at BITS Pilani. It reflects significant original effort, research, and development, and is protected under institutional intellectual property policies. Unauthorized copying, reproduction, or derivative use—whether in part or in full—is strictly discouraged and may lead to academic or legal consequences. If you find this work inspiring or would like to collaborate or learn more, feel free to reach out!!</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="text-align: center; font-size: 0.8rem; opacity: 0.7;">
+              © 2025 Prateek Saxena. All rights reserved. Original visual theme and code custom-built. Please do not replicate without permission.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Generate stars for background
+        function generateStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random star properties
+                const size = Math.random() * 3;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 3 + Math.random() * 4;
+                const opacity = 0.2 + Math.random() * 0.8;
+                
+                // Apply styles
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.animationDelay = `${delay}s`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.opacity = opacity;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            generateStars();
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+
+    
+</body>
+</html> 

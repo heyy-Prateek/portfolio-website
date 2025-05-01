@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prateek Saxena | Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<div id="transition-overlay" class="transition-hidden">
+    <div id="transition-gif-container" class="transition-gif-container">
+      <img id="transition-gif" src="" alt="Project Animation" class="project-gif" />
+    </div>
+    <p class="transition-text" id="transition-text"></p>
+  </div>
+  
+
+<body>
+    <!-- Splash Screen -->
+    <div class="splash-screen" id="splash-screen">
+        <div class="rocket-container">
+            <div class="rocket">
+                <div class="window"></div>
+                <div class="fins fin-left"></div>
+                <div class="fins fin-right"></div>
+                <div class="flame"></div>
+            </div>
+        </div>
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+        <div class="loading-text">INITIATING LAUNCH SEQUENCE</div>
+        <div class="countdown">5</div>
+        <button class="skip-intro" id="skip-intro">Skip Intro</button>
+    </div>
+
+    <!-- Stars Background -->
+    <div class="stars"></div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <i class="fas fa-rocket"></i>
+    </button>
+
+    <!-- Main Content -->
+    <div class="page-transition" id="main-content">
+        <!-- Header -->
+        <header class="py-3 sticky-top">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a href="#" class="navbar-brand">
+                    <h3 class="m-0">Prateek Saxena</h3>
+                </a>
+                <nav>
+                    <ul class="m-0 gap-4">
+                        <li><a href="#hero" class="nav-link">Home</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="dark-mode-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </header>
+
+      <!-- Hero Section -->
+<section id="hero" class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-left ps-lg-0">
+                <div class="sun-wrapper ms-lg-0">
+                    <div class="heat-particle"></div>
+                    <div class="heat-particle"></div>
+                    <div class="heat-particle"></div>
+                    <div class="heat-particle"></div>
+                    <div class="heat-particle"></div>
+                    <div class="heat-particle"></div>
+                    <div class="profile-image-container mb-4 rounded-circle">
+                        <img src="profile photo.jpg" alt="Prateek Saxena" class="rounded-circle profile-img">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 bio-content">
+                <h1 class="display-4 mb-4 fade-in">
+                    Hi,I'm Prateek!
+                </h1>
+                <p class="lead mb-4 slide-up">
+                    I'm a dual-degree student at BITS Pilani with a passion for tech, chemistry, and solving complex problems. I enjoy building thoughtful software, exploring AI, and escaping into games like Red Dead Redemption 2 and Forza Horizon 5 when I need to recharge.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn slide-up">View My Projects</a>
+                    <a href="#contact" class="btn btn-outline slide-up">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Featured Projects</h2>
+                
+                <p class="text-center mb-5" style="max-width: 800px; margin: 0 auto; color: #C2D0E2;">
+                I could've gone with simple GitHub clones — but I believe in building original projects that reflect real creativity, potential, and purpose. Every project here is a result of deep curiosity, long hours, and a desire to make something that actually matters.
+                </p>
+                
+                <div class="project-filters text-center mb-4">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="chemistry">Chemistry</button>
+                    <button class="filter-btn" data-filter="engineering">Engineering</button>
+                    <button class="filter-btn" data-filter="simulation">Simulation</button>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Project 1 -->
+                    <div class="col-md-4 project-card-container chemistry" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-card h-100 rounded p-3">
+                            <div class="card-image-container mb-3">
+                                <img src="bioplastic.png" alt="Bioplastic Project" class="rounded">
+                                <div class="project-overlay">
+                                    <div class="overlay-content">
+                                        <a href="bioplastic.html" class="btn view-project" data-project="bioplastic">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>Sustainable Bioplastics</h3>
+                            <p>Developed novel bioplastic formulations using agricultural waste products, reducing environmental impact and creating sustainable alternatives to conventional plastics.</p>
+                            <div class="project-tags mb-3">
+                                <span class="project-tag">Chemistry</span>
+                                <span class="project-tag">Materials</span>
+                                <span class="project-tag">Sustainability</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="col-md-4 project-card-container chemistry simulation" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-card h-100 rounded p-3">
+                            <div class="card-image-container mb-3">
+                                <img src="hartree fock.png" alt="Hartree-Fock Project" class="rounded">
+                                <div class="project-overlay">
+                                    <div class="overlay-content">
+                                        <a href="hartree-fock.html" class="btn view-project" data-project="hartree">View Project</a>                                    </div>
+                                </div>
+                            </div>
+                            <h3>Hartree-Fock Solver</h3>
+                            <p>Created a quantum chemistry computational tool implementing the Hartree-Fock method for molecular electronic structure determination, enabling advanced chemical modeling.</p>
+                            <div class="project-tags mb-3">
+                                <span class="project-tag">Quantum</span>
+                                <span class="project-tag">C++</span>
+                                <span class="project-tag">Computation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="col-md-4 project-card-container engineering simulation" data-aos="fade-up" data-aos-delay="300">
+                        <div class="project-card h-100 rounded p-3">
+                            <div class="card-image-container mb-3">
+                                <img src="laboratory project.png" alt="Laboratory Project" class="rounded">
+                                <div class="project-overlay">
+                                    <div class="overlay-content">
+                                        <a href="laboratory-project.html" class="btn view-project" data-project="lab">View Project</a>                                    </div>
+                                </div>
+                            </div>
+                            <h3>Laboratory Simulator</h3>
+                            <p>Designed an interactive chemical engineering laboratory simulator for educational purposes, allowing students to conduct virtual experiments safely while learning proper protocols.</p>
+                            <div class="project-tags mb-3">
+                                <span class="project-tag">Education</span>
+                                <span class="project-tag">Simulation</span>
+                                <span class="project-tag">Engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Contact Me</h2>
+                <div class="row justify-content-center">
+                    <div class="col-md-6" data-aos="fade-up">
+                        <div class="card text-center h-100 p-4">
+                            <i class="fas fa-envelope fa-3x mb-3"></i>
+                            <h4>Email Me</h4>
+                            <p>I'm always open for collaborations, freelance gigs, or just a tech chat. Drop me a message!</p>
+                            <p><strong>Email:</strong>f20212756@pilani.bits-pilani.ac.in</p>
+                            <p><strong>Phone:</strong> +91-9458827686</p>
+                            <a href="f20212756@pilani.bits-pilani.ac.in" class="btn mt-auto align-self-center">Say Hello</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-4 text-center">
+            <div class="container">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p style="text-align: center; font-size: 0.8rem; opacity: 0.7;">
+                  © 2025 Prateek Saxena. All rights reserved. Original visual theme and code custom-built. Please do not replicate without permission.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <script>
+        // Generate stars for background
+        function generateStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random star properties
+                const size = Math.random() * 3;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 3 + Math.random() * 4;
+                const opacity = 0.2 + Math.random() * 0.8;
+                
+                // Apply styles
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.animationDelay = `${delay}s`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.opacity = opacity;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Header scroll effect
+        function handleHeaderScroll() {
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 30) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+        
+        // Back to top button
+        function handleBackToTopButton() {
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // Countdown for splash screen
+        function startCountdown() {
+            const countdownEl = document.querySelector('.countdown');
+            let count = 5;
+            
+            const interval = setInterval(() => {
+                count--;
+                countdownEl.textContent = count;
+                
+                if (count <= 0) {
+                    clearInterval(interval);
+                    hideSplash();
+                }
+            }, 1000);
+        }
+        
+        // Ensure AOS animations trigger when scrolling to project section
+        function setupProjectAnimations() {
+            const projectsSection = document.getElementById('projects');
+            const navLinks = document.querySelectorAll('a[href="#projects"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // Refresh AOS animations
+                    setTimeout(() => {
+                        if (typeof AOS !== 'undefined') {
+                            AOS.refreshHard();
+                        }
+                    }, 200);
+                });
+            });
+            
+            // Also refresh AOS on window resize
+            window.addEventListener('resize', function() {
+                if (typeof AOS !== 'undefined') {
+                    AOS.refreshHard();
+                }
+            });
+        }
+        
+        // Splash screen handling
+        document.addEventListener('DOMContentLoaded', function() {
+            generateStars();
+            handleHeaderScroll();
+            handleBackToTopButton();
+            setupProjectAnimations();
+            
+            const splashScreen = document.getElementById('splash-screen');
+            const mainContent = document.getElementById('main-content');
+            const skipIntro = document.getElementById('skip-intro');
+            
+            // Show splash only on first load
+            const hasLaunchedBefore = sessionStorage.getItem("rocketLaunched");
+            
+            if (!hasLaunchedBefore) {
+                sessionStorage.setItem("rocketLaunched", "true");
+                splashScreen.style.display = 'flex';
+                startCountdown();
+            } else {
+                // Skip splash, show main content immediately
+                splashScreen.style.display = 'none';
+                document.querySelector('main').style.display = 'block';
+                mainContent.classList.add('visible');
+                
+                // Initialize AOS
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 800,
+                        once: true,
+                        offset: 50,
+                        delay: 50,
+                        easing: 'ease-in-out'
+                    });
+                    
+                    setTimeout(() => {
+                        AOS.refresh();
+                    }, 300);
+                }
+                
+                // Force show all project cards
+                document.querySelectorAll('.project-card-container').forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                    card.style.visibility = 'visible';
+                    card.style.display = 'block';
+                    card.classList.add('visible');
+                });
+            }
+            
+            // Project card animations with Intersection Observer
+            const projectCards = document.querySelectorAll('.project-card-container');
+            const animationElements = document.querySelectorAll('.fade-in, .slide-up');
+            
+            // Skip intro button click
+            skipIntro.addEventListener('click', function() {
+                hideSplash();
+            });
+            
+            function hideSplash() {
+                const splash = document.getElementById('splash-screen');
+                const main = document.querySelector('main');
+                
+                splash.classList.add('hidden');
+                
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    main.style.display = 'block';
+                    mainContent.classList.add('visible');
+                    
+                    // Initialize AOS library if available
+                    if (typeof AOS !== 'undefined') {
+                        AOS.init({
+                            duration: 800,
+                            once: true,
+                            offset: 50,
+                            delay: 50,
+                            easing: 'ease-in-out'
+                        });
+                        
+                        // Force refresh AOS
+                        setTimeout(() => {
+                            AOS.refreshHard();
+                            
+                            // Force show all project cards
+                            document.querySelectorAll('.project-card-container').forEach(card => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                                card.style.visibility = 'visible';
+                                card.style.display = 'block';
+                                card.classList.add('visible');
+                            });
+                        }, 300);
+                    }
+                    
+                    setupProjectAnimations();
+                }, 500);
+            }
+        });
+    </script>
+
+    <!-- Last-resort emergency backup script to show content if still hidden -->
+    <script>
+        // Backup timer to ensure content is shown
+        setTimeout(function() {
+            const mainContent = document.getElementById('main-content');
+            const splashScreen = document.getElementById('splash-screen');
+            
+            // Force hide splash screen
+            if (splashScreen) {
+                splashScreen.style.display = 'none';
+                splashScreen.style.visibility = 'hidden';
+                splashScreen.style.opacity = '0';
+                splashScreen.style.zIndex = '-999';
+            }
+            
+            // Force show main content
+            if (mainContent) {
+                mainContent.classList.add('visible');
+                mainContent.style.display = 'block';
+                mainContent.style.opacity = '1';
+                mainContent.style.visibility = 'visible';
+                mainContent.style.zIndex = '1';
+                mainContent.style.animation = 'mainFadeIn 1s ease forwards';
+                
+                // Force show all project cards
+                document.querySelectorAll('.project-card-container').forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                    card.style.visibility = 'visible';
+                    card.style.display = 'block';
+                    card.classList.add('visible');
+                });
+                
+                console.log('Emergency content display activated');
+            }
+        }, 8000); // 8 second backup timer
+    </script>
+
+    <!-- Sun Effect Script -->
+    <script>
+        // Solar flare click effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const sunWrapper = document.querySelector('.sun-wrapper');
+            
+            if (sunWrapper) {
+                sunWrapper.addEventListener('click', function() {
+                    // Prevent multiple clicks during animation
+                    if (this.classList.contains('solar-flare')) return;
+                    
+                    // Add the solar flare class
+                    this.classList.add('solar-flare');
+                    
+                    // Remove the class after animation completes
+                    setTimeout(() => {
+                        this.classList.remove('solar-flare');
+                    }, 900);
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

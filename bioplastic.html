@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioplastics Research Project | Prateek Saxena</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Project Page Specific Styles */
+        .project-hero {
+            padding: 8rem 0 4rem;
+            position: relative;
+        }
+        
+        .project-section {
+            padding: 5rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .research-component {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            transition: transform var(--animation-medium) ease, box-shadow var(--animation-medium) ease;
+        }
+        
+        .research-component:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(32, 178, 174, 0.3);
+        }
+        
+        .focus-area {
+            background-color: rgba(10, 16, 30, 0.5);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.1);
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(32, 178, 174, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .icon-circle i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .back-button:hover {
+            background-color: var(--turquoise);
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars"></div>
+
+    <!-- Back to Projects Button -->
+    <a href="index.html#projects" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h1 class="text-center mb-5" data-aos="fade-up">Bioplastics Research Project</h1>
+                    <div class="card p-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row g-4">
+                            <div class="col-lg-8">
+                                <h2 class="mb-4">Research Overview</h2>
+                                <p>
+                                    The Bioplastics Research Project investigates sustainable alternatives to conventional plastics through a comprehensive study of biopolymer properties, synthesis methods, and applications. The research aims to address the critical environmental challenges posed by plastic pollution while maintaining the functional requirements for commercial use.
+                                </p>
+                                <p>
+                                    This project combines theoretical modeling, literature analysis, and potential experimental validation to develop a deeper understanding of bioplastic materials and their viability as replacements for petroleum-based plastics.
+                                </p>
+                            </div>
+                            <div class="col-lg-4 d-flex align-items-center justify-content-center">
+                                <img src="bioplastic.png" alt="Bioplastics Research" class="img-fluid rounded shadow">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Components Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Research Components</h2>
+            <div class="row g-4">
+                <!-- Component 1 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="research-component">
+                        <div class="icon-circle">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 class="text-center mb-4">Literature Synthesis</h3>
+                        <p>
+                            Comprehensive analysis of existing research on bioplastics including:
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Categorization of biopolymer types and properties</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Comparison of synthesis methods and efficiencies</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Assessment of biodegradability metrics</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Identification of research gaps and opportunities</li>
+                        </ul>
+                        <div class="mt-4 text-muted">
+                            Last updated: April 2023
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Component 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="research-component">
+                        <div class="icon-circle">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="text-center mb-4">Study Project Report</h3>
+                        <p>
+                            Detailed documentation of research methodology and findings:
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Problem statement and research objectives</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Theoretical framework for bioplastic evaluation</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Analysis of material properties and performance</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Conclusions and recommendations for further research</li>
+                        </ul>
+                        <div class="mt-4 text-muted">
+                            Completed: December 2022
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Component 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="research-component">
+                        <div class="icon-circle">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-center mb-4">Research Presentation</h3>
+                        <p>
+                            Visual communication of research outcomes and key findings:
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Summary of experimental approaches</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Visual data representation of material properties</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Comparison of different bioplastic formulations</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Future research directions and applications</li>
+                        </ul>
+                        <div class="mt-4 text-muted">
+                            Prepared: December 2022
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Focus Areas -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Research Focus Areas</h2>
+            <div class="card p-4 mb-5" data-aos="fade-up">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="focus-area">
+                            <h3 class="mb-4">Material Properties</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Tensile strength and flexibility comparable to conventional plastics</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Thermal stability under various conditions</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Barrier properties for moisture and oxygen</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Surface characteristics and printability</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="focus-area">
+                            <h3 class="mb-4">Sustainability Metrics</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Biodegradation rates in various environments</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Carbon footprint of production processes</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Life cycle assessment of bioplastic products</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> End-of-life scenarios and waste management options</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <div class="focus-area">
+                            <h3 class="mb-4">Formulation Development</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Natural fiber reinforcement techniques</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Polymer blending for enhanced properties</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Additives for improved stability and performance</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Processing parameters optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <div class="focus-area">
+                            <h3 class="mb-4">Market Applications</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Food packaging requirements and regulations</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Consumer goods and single-use applications</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Agricultural films and controlled release systems</li>
+                                <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Medical and healthcare applications</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-5 mb-4">
+        <div class="card p-3" style="border: 1px solid #20B2AE; background-color: rgba(10, 16, 30, 0.7);">
+            <div class="text-center" style="font-size: 0.95rem; color: #e2e8f0;">
+                <p><strong>Note:</strong> This project is officially registered as part of my academic coursework at BITS Pilani. It reflects significant original effort, research, and development, and is protected under institutional intellectual property policies. Unauthorized copying, reproduction, or derivative use—whether in part or in full—is strictly discouraged and may lead to academic or legal consequences. If you find this work inspiring or would like to collaborate or learn more, feel free to reach out!!</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="text-align: center; font-size: 0.8rem; opacity: 0.7;">
+              © 2025 Prateek Saxena. All rights reserved. Original visual theme and code custom-built. Please do not replicate without permission.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Generate stars for background
+        function generateStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random star properties
+                const size = Math.random() * 3;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 3 + Math.random() * 4;
+                const opacity = 0.2 + Math.random() * 0.8;
+                
+                // Apply styles
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.animationDelay = `${delay}s`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.opacity = opacity;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            generateStars();
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+
+    
+</body>
+</html> 

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hartree-Fock Energy Calculator | Prateek Saxena</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</head>
+<body class="bg-gray-900 text-gray-200 font-mono">
+    <header class="py-6 px-4 sm:px-6 md:px-8 border-b border-gray-800">
+        <nav class="flex items-center justify-between">
+            <a href="../index.html" class="text-2xl font-bold hover:text-purple-400 transition-colors">PS</a>
+            <div class="space-x-6">
+                <a href="../index.html#projects" class="hover:text-purple-400 transition-colors">Back to Projects</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-20 px-4 sm:px-6 md:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-8 text-purple-400">Hartree-Fock Quantum Chemistry Solver</h1>
+            
+            <div class="bg-gray-800 p-6 rounded-lg mb-12">
+                <div class="flex items-center mb-4">
+                    <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                    <p class="text-lg text-green-400">Active Development</p>
+                </div>
+                <p class="text-gray-300">
+                    A modular, high-performance implementation of Restricted and Unrestricted Hartree-Fock methods in C++. 
+                    This program calculates electronic structures and energies of molecules using Gaussian basis functions
+                    and advanced SCF convergence techniques.
+                </p>
+            </div>
+
+            <!-- Architecture Overview -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-700">Architecture Overview</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <img src="../hartree fock.png" alt="Hartree-Fock Architecture" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div>
+                        <p class="mb-4">The program follows a modular, component-based architecture with separate libraries handling different aspects of quantum chemistry calculations:</p>
+                        
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <div class="bg-purple-500 text-white p-1 rounded-md mr-3 text-xs mt-1">libscf</div>
+                                <span>Self-Consistent Field solvers (RHF/UHF) with DIIS and fixed-point iteration methods</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-blue-500 text-white p-1 rounded-md mr-3 text-xs mt-1">libint</div>
+                                <span>One and two-electron integral calculations with optimized Gaussian primitives</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-green-500 text-white p-1 rounded-md mr-3 text-xs mt-1">libmol</div>
+                                <span>Molecule representation, basis set management, and geometry handling</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-yellow-500 text-white p-1 rounded-md mr-3 text-xs mt-1">libmath</div>
+                                <span>Linear algebra utilities including matrix diagonalization and eigenvalue solvers</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-red-500 text-white p-1 rounded-md mr-3 text-xs mt-1">libgf</div>
+                                <span>Gaussian function primitives and normalization for quantum chemistry</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Key Features -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-700">Key Features</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-5 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <svg class="w-5 h-5 text-purple-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-lg font-bold text-purple-400">Multiple Methods</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">Support for both Restricted (RHF) and Unrestricted (UHF) Hartree-Fock calculations to handle both closed and open-shell systems.</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-5 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <svg class="w-5 h-5 text-purple-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-lg font-bold text-purple-400">Advanced SCF Solvers</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">Implements DIIS (Direct Inversion of Iterative Subspace) and fixed-point iterations for robust and efficient convergence.</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-5 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <svg class="w-5 h-5 text-purple-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-lg font-bold text-purple-400">Population Analysis</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">Built-in Mulliken and Löwdin population analysis to calculate atomic charges and electron distribution.</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-5 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <svg class="w-5 h-5 text-purple-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-lg font-bold text-purple-400">Modular Architecture</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">Clearly separated libraries with well-defined interfaces allow for easy extension and maintenance of the codebase.</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-5 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <svg class="w-5 h-5 text-purple-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-lg font-bold text-purple-400">STO-3G Basis Set</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">Implements the STO-3G (Slater-Type Orbitals expressed as 3 Gaussians) basis set for accurate representation of molecular orbitals.</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-5 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <svg class="w-5 h-5 text-purple-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <h3 class="text-lg font-bold text-purple-400">Comprehensive Output</h3>
+                        </div>
+                        <p class="text-gray-300 text-sm">Detailed output including molecular orbital energies, coefficients, convergence metrics, and population analysis.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Theory Section -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-700">Theoretical Background</h2>
+                
+                <p class="mb-4">The Hartree-Fock method is a fundamental quantum chemistry approach that approximates the electronic wavefunction and energy of a quantum many-body system.</p>
+                
+                <div class="math-equation my-6">
+                    <p>$$F\psi_i = \varepsilon_i \psi_i$$</p>
+                    <p class="text-sm text-gray-400 mt-2">Hartree-Fock equation, where \(F\) is the Fock operator, \(\psi_i\) is a molecular orbital, and \(\varepsilon_i\) is the orbital energy.</p>
+                </div>
+                
+                <p class="mb-4">The Fock operator contains kinetic energy, electron-nuclear attraction, and a mean-field electron-electron repulsion:</p>
+                
+                <div class="math-equation my-6">
+                    <p>$$F = -\frac{1}{2}\nabla^2 - \sum_A \frac{Z_A}{r_{iA}} + V_{HF}(i)$$</p>
+                    <p class="text-sm text-gray-400 mt-2">Where \(V_{HF}\) represents the average potential an electron experiences due to all other electrons.</p>
+                </div>
+                
+                <p class="mb-4">The SCF procedure is implemented with both fixed-point iterations and DIIS for enhanced convergence:</p>
+                
+                <div class="code-snippet mt-6">
+                    <pre><code class="language-cpp">// Pseudocode for the SCF procedure in RHF
+void SCF_RHF() {
+    // Initial guess for density matrix P
+    P = initial_guess();
+    
+    do {
+        // Build Fock matrix from density matrix
+        F = build_fock_matrix(P);
+        
+        // Solve F*C = S*C*E eigenvalue problem
+        C = solve_generalized_eigenvalue(F, S);
+        
+        // Form new density matrix
+        P_new = form_density_matrix(C);
+        
+        // Check for convergence
+        error = calculate_error(P, P_new);
+        P = P_new;
+        
+    } while (error > threshold);
+    
+    // Calculate final energy and properties
+    energy = calculate_energy(P, F, H_core);
+}</code></pre>
+                </div>
+                
+                <p class="mt-6 text-sm text-gray-400">The implementation also includes specialized routines for UHF to handle open-shell systems with different alpha and beta electron densities.</p>
+                
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="../theory for hartree fock page/scf.pdf" target="_blank" class="bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition-colors">
+                        <div class="text-purple-400 font-bold mb-2">SCF Theory</div>
+                        <p class="text-sm text-gray-400">Full mathematical derivation of the SCF method.</p>
+                    </a>
+                    <a href="../theory for hartree fock page/scf (1).pdf" target="_blank" class="bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition-colors">
+                        <div class="text-purple-400 font-bold mb-2">Matrix Formulation</div>
+                        <p class="text-sm text-gray-400">Matrix elements and basis set implementation.</p>
+                    </a>
+                    <a href="../theory for hartree fock page/scf (2).pdf" target="_blank" class="bg-gray-800 p-4 rounded-lg hover:bg-gray-700 transition-colors">
+                        <div class="text-purple-400 font-bold mb-2">Convergence Techniques</div>
+                        <p class="text-sm text-gray-400">DIIS and other methods for SCF convergence.</p>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Code Structure & Design -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-700">Code Structure & Design</h2>
+                
+                <div class="bg-gray-800 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-bold mb-4 text-purple-400">Project Organization</h3>
+                    
+                    <div class="code-snippet">
+                        <pre><code class="language-bash">hf_prateek/
+├── main/                  # Main executable and input files
+│   ├── hartree-fock.cpp  # Program entry point
+│   ├── sample_inputs/    # Example molecule input files
+│   └── sample_outputs/   # Reference calculation results
+├── libscf/               # Self-consistent field algorithms
+│   ├── scfrhf.cpp        # Restricted Hartree-Fock
+│   └── scfuhf.cpp        # Unrestricted Hartree-Fock
+├── libmol/               # Molecule and basis set handling
+├── libmath/              # Linear algebra and math utilities
+├── libint/               # Integral computation
+└── libgf/                # Gaussian function primitives</code></pre>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-purple-400">Key Implementation Details</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-300">SCF Convergence with DIIS</h4>
+                            <p class="text-gray-400 text-sm mb-2">The Direct Inversion in the Iterative Subspace (DIIS) method drastically improves convergence by using error vectors from previous iterations to predict an improved Fock matrix.</p>
+                            <div class="h-1 w-full bg-purple-900 rounded-full overflow-hidden">
+                                <div class="bg-purple-400 h-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-300">Efficient Integral Evaluation</h4>
+                            <p class="text-gray-400 text-sm mb-2">Optimized algorithms for computing one- and two-electron integrals using the Gaussian product theorem and recurrence relations.</p>
+                            <div class="h-1 w-full bg-purple-900 rounded-full overflow-hidden">
+                                <div class="bg-purple-400 h-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-300">Population Analysis</h4>
+                            <p class="text-gray-400 text-sm mb-2">Both Mulliken and Löwdin methods for analyzing the electron distribution and atomic charges in molecules.</p>
+                            <div class="h-1 w-full bg-purple-900 rounded-full overflow-hidden">
+                                <div class="bg-purple-400 h-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-300">Memory Management</h4>
+                            <p class="text-gray-400 text-sm mb-2">Efficient storage and manipulation of large matrices for two-electron integrals and density matrices.</p>
+                            <div class="h-1 w-full bg-purple-900 rounded-full overflow-hidden">
+                                <div class="bg-purple-400 h-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Sample Outputs Section -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-700">Sample Calculation Results</h2>
+                
+                <p class="mb-6">The program has been validated on a variety of molecular systems ranging from simple diatomics to more complex organic molecules:</p>
+                
+                <div class="space-y-6">
+                    <!-- Water -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-purple-400">H₂O (Water)</h3>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/2 mb-4 md:mb-0 md:mr-4">
+                                <p class="mb-2"><span class="text-gray-400">Calculated Energy:</span> -74.98394 Hartree</p>
+                                <p class="mb-2"><span class="text-gray-400">Basis Set:</span> STO-3G</p>
+                                <p class="mb-2"><span class="text-gray-400">Method:</span> RHF</p>
+                                <p class="mb-2"><span class="text-gray-400">Löwdin Charges:</span> O(-0.83), H(+0.42), H(+0.42)</p>
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <a href="../sample_outputs/H2O.dat" target="_blank" class="block bg-gray-700 p-3 rounded-md hover:bg-gray-600 transition-colors text-center">
+                                    View Full Output
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ammonia -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-purple-400">NH₃ (Ammonia)</h3>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/2 mb-4 md:mb-0 md:mr-4">
+                                <p class="mb-2"><span class="text-gray-400">Calculated Energy:</span> -54.04445 Hartree</p>
+                                <p class="mb-2"><span class="text-gray-400">Basis Set:</span> STO-3G</p>
+                                <p class="mb-2"><span class="text-gray-400">Method:</span> RHF</p>
+                                <p class="mb-2"><span class="text-gray-400">Iterations to Converge:</span> 14</p>
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <a href="../sample_outputs/NH3.dat" target="_blank" class="block bg-gray-700 p-3 rounded-md hover:bg-gray-600 transition-colors text-center">
+                                    View Full Output
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Oxygen -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-purple-400">O₂ (Oxygen)</h3>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/2 mb-4 md:mb-0 md:mr-4">
+                                <p class="mb-2"><span class="text-gray-400">Calculated Energy:</span> -144.09105 Hartree</p>
+                                <p class="mb-2"><span class="text-gray-400">Basis Set:</span> STO-3G</p>
+                                <p class="mb-2"><span class="text-gray-400">Method:</span> UHF (triplet)</p>
+                                <p class="mb-2"><span class="text-gray-400">Convergence Method:</span> DIIS</p>
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <a href="../sample_outputs/o2.dat" target="_blank" class="block bg-gray-700 p-3 rounded-md hover:bg-gray-600 transition-colors text-center">
+                                    View Full Output
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Benzene -->
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-purple-400">C₆H₆ (Benzene)</h3>
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/2 mb-4 md:mb-0 md:mr-4">
+                                <p class="mb-2"><span class="text-gray-400">Calculated Energy:</span> -230.78 Hartree</p>
+                                <p class="mb-2"><span class="text-gray-400">Basis Set:</span> STO-3G</p>
+                                <p class="mb-2"><span class="text-gray-400">Method:</span> RHF</p>
+                                <p class="mb-2"><span class="text-gray-400">Iterations:</span> 88 (most complex test case)</p>
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <a href="../sample_outputs/c6h6 output 88 min e-4accuracy.dat" target="_blank" class="block bg-gray-700 p-3 rounded-md hover:bg-gray-600 transition-colors text-center">
+                                    View Full Output
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Future Developments -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-700">Future Developments</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3 class="text-lg font-bold mb-2 text-purple-400">Extended Basis Sets</h3>
+                        <p class="text-green-400">▶ In Progress</p>
+                        <p class="text-sm text-gray-400 mt-1">Implementing 6-31G, cc-pVDZ, and other extended basis sets for higher accuracy.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3 class="text-lg font-bold mb-2 text-purple-400">Post-HF Methods</h3>
+                        <p class="text-yellow-400">⟳ Planned</p>
+                        <p class="text-sm text-gray-400 mt-1">Adding electron correlation through MP2 and CCSD methods.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3 class="text-lg font-bold mb-2 text-purple-400">Graphical User Interface</h3>
+                        <p class="text-yellow-400">⟳ Planned</p>
+                        <p class="text-sm text-gray-400 mt-1">Developing a GUI for visualizing molecules, orbitals, and calculation results.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3 class="text-lg font-bold mb-2 text-purple-400">Excited States</h3>
+                        <p class="text-gray-400">◯ Future Goal</p>
+                        <p class="text-sm text-gray-400 mt-1">Implementing time-dependent HF for excited state calculations.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Technical Skills Demonstrated -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 border-b pb-2 border-gray-700">Technical Skills Demonstrated</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-800 p-5 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3 text-purple-400">Programming</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Advanced C++ object-oriented design</li>
+                            <li>Template metaprogramming techniques</li>
+                            <li>Memory management optimization</li>
+                            <li>Efficient numerical algorithms</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-5 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3 text-purple-400">Quantum Chemistry</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Self-Consistent Field theory</li>
+                            <li>Molecular orbital calculations</li>
+                            <li>Gaussian basis function mathematics</li>
+                            <li>Population analysis methods</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-5 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3 text-purple-400">Mathematics</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Linear algebra for eigenvalue problems</li>
+                            <li>Numerical integration techniques</li>
+                            <li>Convergence acceleration methods</li>
+                            <li>Error minimization algorithms</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-800 p-5 rounded-lg">
+                        <h3 class="text-xl font-bold mb-3 text-purple-400">Software Engineering</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Modular library architecture</li>
+                            <li>Clean interface design</li>
+                            <li>Version control with Git</li>
+                            <li>Automated build configuration</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Code Section End -->
+            
+            <!-- Academic Notice -->
+            <section class="mb-12">
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-6 text-center text-purple-400">Academic Notice</h2>
+                    <div class="bg-gray-900 p-6 rounded-lg border-l-4 border-purple-400">
+                        <p class="text-gray-300 leading-relaxed mb-4">
+                            <strong class="text-purple-400">Important:</strong> This project is officially registered at BITS Pilani as academic research. All ideas, methodologies, algorithms, and implementation logic are protected intellectual property.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Plagiarism of conceptual frameworks, research approaches, or code implementation is strictly prohibited and may have academic consequences. If you're interested in building upon this work, please reach out for proper attribution and collaboration opportunities.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 px-4 sm:px-6 md:px-8 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <p style="text-align: center; font-size: 0.8rem; opacity: 0.7; width: 100%;">
+              © 2025 Prateek Saxena. All rights reserved. Original visual theme and code custom-built. Please do not replicate without permission.
+            </p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="https://github.com/your-username/hartree-fock" class="text-gray-400 hover:text-purple-400 transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="mailto:f20212756@pilani.bits-pilani.ac.in" class="text-gray-400 hover:text-purple-400 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </a>
+                <a href="tel:+919458827686" class="text-gray-400 hover:text-purple-400 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize MathJax
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+</body>
+</html> 

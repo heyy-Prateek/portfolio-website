@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hartree-Fock Quantum Chemistry Solver | Prateek Saxena</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Project Page Specific Styles */
+        .project-hero {
+            padding: 8rem 0 4rem;
+            position: relative;
+        }
+        
+        .project-section {
+            padding: 5rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tech-component {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            transition: transform var(--animation-medium) ease, box-shadow var(--animation-medium) ease;
+        }
+        
+        .tech-component:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(32, 178, 174, 0.3);
+        }
+        
+        .algorithm-card {
+            background-color: rgba(10, 16, 30, 0.5);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.1);
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(32, 178, 174, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .icon-circle i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .code-block {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: #e2e8f0;
+            overflow-x: auto;
+            border: 1px solid rgba(32, 178, 174, 0.3);
+        }
+        
+        .code-block::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .code-block::-webkit-scrollbar-thumb {
+            background-color: rgba(32, 178, 174, 0.5);
+            border-radius: 4px;
+        }
+        
+        .code-block::-webkit-scrollbar-track {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+        }
+        
+        .keyword {
+            color: #f472b6;
+        }
+        
+        .function {
+            color: #60a5fa;
+        }
+        
+        .string {
+            color: #fbbf24;
+        }
+        
+        .comment {
+            color: #6b7280;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .back-button:hover {
+            background-color: var(--turquoise);
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars"></div>
+
+    <!-- Back to Projects Button -->
+    <a href="index.html#projects" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h1 class="text-center mb-5" data-aos="fade-up">Hartree-Fock Quantum Chemistry Solver</h1>
+                    <div class="card p-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row g-4">
+                            <div class="col-lg-8">
+                                <h2 class="mb-4">Project Overview</h2>
+                                <p>
+                                    The Hartree-Fock Quantum Chemistry Solver is a computational quantum chemistry program that implements the self-consistent field (SCF) method for solving the electronic Schrödinger equation. This implementation includes both Restricted Hartree-Fock (RHF) and Unrestricted Hartree-Fock (UHF) algorithms, capable of handling closed-shell and open-shell molecular systems.
+                                </p>
+                                <p>
+                                    The solver is designed with a modular architecture that separates core quantum chemical algorithms from input/output processing, making it extensible for future enhancements and additional quantum chemistry methods.
+                                </p>
+                            </div>
+                            <div class="col-lg-4 d-flex align-items-center justify-content-center">
+                                <img src="hartree fock.png" alt="Hartree-Fock Solver" class="img-fluid rounded shadow">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Structure Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Project Structure</h2>
+            <div class="card p-4" data-aos="fade-up">
+                <div class="row g-4">
+                    <div class="col-lg-12">
+                        <p>
+                            The Hartree-Fock solver is built with a modular library structure that separates different aspects of quantum chemistry calculations into distinct components:
+                        </p>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h4 class="mb-3"><i class="fas fa-folder-open text-turquoise me-2"></i>Library Components</h4>
+                                <ul>
+                                    <li class="mb-2"><strong>libscf</strong> - Self-consistent field implementations for both RHF and UHF methods</li>
+                                    <li class="mb-2"><strong>libmol</strong> - Molecule class and basis set loader to handle molecular geometries</li>
+                                    <li class="mb-2"><strong>libmath</strong> - Linear algebra utilities and mathematical helper functions</li>
+                                    <li class="mb-2"><strong>libgf</strong> - Gaussian function definitions and normalizations</li>
+                                    <li class="mb-2"><strong>libint</strong> - One- and two-electron integral evaluations</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="mb-3"><i class="fas fa-file-code text-turquoise me-2"></i>Program Flow</h4>
+                                <ul>
+                                    <li class="mb-2">Input file parsing and molecular system setup</li>
+                                    <li class="mb-2">Basis set initialization and integral evaluation</li>
+                                    <li class="mb-2">Self-consistent field iterations (RHF or UHF)</li>
+                                    <li class="mb-2">Convergence acceleration using DIIS or fixed-point iteration</li>
+                                    <li class="mb-2">Population analysis and property calculation</li>
+                                    <li class="mb-2">Results output and visualization</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4 class="mb-3"><i class="fas fa-file-alt text-turquoise me-2"></i>Input Format</h4>
+                            <div class="code-block mb-3">
+<pre>
+&lt;Number of atoms&gt; &lt;charge&gt; &lt;multiplicity&gt;
+&lt;Z1&gt; &lt;x1&gt; &lt;y1&gt; &lt;z1&gt;
+&lt;Z2&gt; &lt;x2&gt; &lt;y2&gt; &lt;z2&gt;
+...
+&lt;Basis Set Name&gt;
+</pre>
+                            </div>
+                            <p class="text-muted">Example for water molecule (H₂O):</p>
+                            <div class="code-block mb-3">
+<pre>
+3 0 1
+8  0.0000000000  0.0000000000  0.21981483259
+1  0.0000000000  1.4194772274 -0.87926122007
+1  0.0000000000 -1.4194772274 -0.87926122007
+STO-3G
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Structure Visualization -->
+    <h3 class="text-center mb-4" data-aos="fade-up">Project Structure</h3>
+    <div class="code-block mb-5" data-aos="fade-up">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="d-flex justify-content-center mb-4">
+                    <div class="p-4" style="max-width: 800px;">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-project-diagram fa-3x text-turquoise"></i>
+                            <h4 class="mt-3">Modular Architecture</h4>
+                        </div>
+                        
+                        <div class="row g-4">
+                            <!-- Main Application -->
+                            <div class="col-12 text-center mb-2">
+                                <div class="p-3" style="background-color: rgba(32, 178, 174, 0.2); border-radius: 8px; border: 1px solid rgba(32, 178, 174, 0.4);">
+                                    <h5><i class="fas fa-cogs me-2"></i>main/hartree-fock.cpp</h5>
+                                    <p class="mb-0 small">Central driver program and command-line interface</p>
+                                </div>
+                                <div class="d-flex justify-content-center my-2">
+                                    <div style="width: 2px; height: 30px; background-color: rgba(32, 178, 174, 0.4);"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Library Modules -->
+                            <div class="col-12">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="p-3 h-100" style="background-color: rgba(224, 194, 159, 0.2); border-radius: 8px; border: 1px solid rgba(224, 194, 159, 0.4);">
+                                            <h6><i class="fas fa-atom me-2"></i>libscf/</h6>
+                                            <p class="small mb-0">Self-consistent field implementations:</p>
+                                            <ul class="small ps-3 mb-0">
+                                                <li>scfrhf.cpp - RHF method</li>
+                                                <li>scfuhf.cpp - UHF method</li>
+                                                <li>scfgen.cpp - Common utilities</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 h-100" style="background-color: rgba(224, 194, 159, 0.2); border-radius: 8px; border: 1px solid rgba(224, 194, 159, 0.4);">
+                                            <h6><i class="fas fa-cube me-2"></i>libmol/</h6>
+                                            <p class="small mb-0">Molecular structure handling:</p>
+                                            <ul class="small ps-3 mb-0">
+                                                <li>Molecular geometry</li>
+                                                <li>Basis set loading</li>
+                                                <li>Atomic properties</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="p-3 h-100" style="background-color: rgba(224, 194, 159, 0.2); border-radius: 8px; border: 1px solid rgba(224, 194, 159, 0.4);">
+                                            <h6><i class="fas fa-wave-square me-2"></i>libgf/</h6>
+                                            <p class="small mb-0">Gaussian functions:</p>
+                                            <ul class="small ps-3 mb-0">
+                                                <li>Primitive Gaussians</li>
+                                                <li>Contracted basis functions</li>
+                                                <li>Normalization routines</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-3 mt-3">
+                                    <div class="col-md-6">
+                                        <div class="p-3 h-100" style="background-color: rgba(224, 194, 159, 0.2); border-radius: 8px; border: 1px solid rgba(224, 194, 159, 0.4);">
+                                            <h6><i class="fas fa-calculator me-2"></i>libmath/</h6>
+                                            <p class="small mb-0">Mathematical utilities:</p>
+                                            <ul class="small ps-3 mb-0">
+                                                <li>linalg.cpp - Matrix operations</li>
+                                                <li>miscmath.cpp - Special functions</li>
+                                                <li>Linear algebra solvers</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-3 h-100" style="background-color: rgba(224, 194, 159, 0.2); border-radius: 8px; border: 1px solid rgba(224, 194, 159, 0.4);">
+                                            <h6><i class="fas fa-infinity me-2"></i>libint/</h6>
+                                            <p class="small mb-0">Integral evaluations:</p>
+                                            <ul class="small ps-3 mb-0">
+                                                <li>1e.cpp - One-electron integrals</li>
+                                                <li>2e.cpp - Two-electron integrals</li>
+                                                <li>Recursion relations</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- I/O Layer -->
+                            <div class="col-12 mt-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="p-3" style="background-color: rgba(96, 165, 250, 0.2); border-radius: 8px; border: 1px solid rgba(96, 165, 250, 0.4);">
+                                            <h6><i class="fas fa-file-import me-2"></i>Input Processing</h6>
+                                            <p class="small mb-0">main/sample_inputs/ - Molecule definition files</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="p-3" style="background-color: rgba(96, 165, 250, 0.2); border-radius: 8px; border: 1px solid rgba(96, 165, 250, 0.4);">
+                                            <h6><i class="fas fa-file-export me-2"></i>Output Generation</h6>
+                                            <p class="small mb-0">main/sample_outputs/ - Calculation results</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theoretical Background Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Theoretical Background</h2>
+            <div class="card p-4" data-aos="fade-up">
+                <div class="row g-4">
+                    <div class="col-lg-12">
+                        <p>
+                            The Hartree-Fock method is a fundamental quantum mechanical approach to approximately solve the electronic Schrödinger equation for molecular systems.
+                            It forms the foundation of more advanced computational chemistry methods and provides essential insights into electronic structure.
+                        </p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Key Theoretical Concepts</h4>
+                                <ul>
+                                    <li class="mb-2"><strong>Mean-Field Approximation</strong> - Each electron moves in the average field of all other electrons</li>
+                                    <li class="mb-2"><strong>Slater Determinants</strong> - Mathematical representation of many-electron wavefunctions that satisfy the Pauli principle</li>
+                                    <li class="mb-2"><strong>Self-Consistent Field (SCF)</strong> - Iterative procedure to find optimal molecular orbitals</li>
+                                    <li class="mb-2"><strong>Basis Set Expansion</strong> - Representation of molecular orbitals using predefined basis functions</li>
+                                    <li class="mb-2"><strong>Roothaan-Hall Equations</strong> - Matrix formulation of the HF equations for practical computation</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="mb-3">Mathematical Formulation</h4>
+                                <div class="algorithm-card p-3">
+                                    <p>The Hartree-Fock equation in operator form:</p>
+                                    <p class="text-center">F̂ψᵢ = εᵢψᵢ</p>
+                                    <p>Where:</p>
+                                    <ul>
+                                        <li>F̂ is the Fock operator</li>
+                                        <li>ψᵢ are the molecular orbital wavefunctions</li>
+                                        <li>εᵢ are the orbital energies</li>
+                                    </ul>
+                                    <p>The Fock operator includes:</p>
+                                    <ul>
+                                        <li>Kinetic energy operator</li>
+                                        <li>Nuclear-electron attraction</li>
+                                        <li>Electron-electron repulsion (Coulomb and exchange)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4 class="mb-3">RHF vs. UHF Methods</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="feature-card mb-3">
+                                        <h5><i class="fas fa-atom text-turquoise me-2"></i>Restricted Hartree-Fock (RHF)</h5>
+                                        <ul>
+                                            <li>For closed-shell systems (paired electrons)</li>
+                                            <li>Same spatial orbitals for alpha and beta electrons</li>
+                                            <li>More computationally efficient</li>
+                                            <li>Cannot describe bond breaking properly</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="feature-card mb-3">
+                                        <h5><i class="fas fa-atom text-gold me-2"></i>Unrestricted Hartree-Fock (UHF)</h5>
+                                        <ul>
+                                            <li>For open-shell systems (unpaired electrons)</li>
+                                            <li>Different spatial orbitals for alpha and beta electrons</li>
+                                            <li>More computationally demanding</li>
+                                            <li>Can describe spin polarization effects</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4 class="mb-3">SCF Convergence Methods</h4>
+                            <p>
+                                The Self-Consistent Field procedure can be challenging to converge for some systems. This implementation includes two key acceleration techniques:
+                            </p>
+                            <ul>
+                                <li class="mb-2"><strong>Fixed-Point Iteration</strong> - Simple method that directly uses the output of one cycle as input to the next</li>
+                                <li class="mb-2"><strong>Direct Inversion of Iterative Subspace (DIIS)</strong> - Advanced technique that uses information from multiple previous iterations to predict an improved Fock matrix</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Components Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Technical Components</h2>
+            <div class="row g-4">
+                <!-- Component 1 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-component">
+                        <div class="icon-circle">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3 class="text-center mb-4">Core SCF Library</h3>
+                        <p>
+                            The fundamental quantum chemistry algorithms that include:
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Restricted Hartree-Fock (RHF) implementation</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Unrestricted Hartree-Fock (UHF) implementation</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Integral evaluation routines</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> SCF convergence acceleration methods</li>
+                        </ul>
+                        <div class="mt-4 text-muted">
+                            Implementation: C++
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Component 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-component">
+                        <div class="icon-circle">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3 class="text-center mb-4">Basis Set Library</h3>
+                        <p>
+                            Gaussian basis set implementation with:
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> STO-nG minimal basis sets</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Primitive Gaussian integral evaluation</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Contracted Gaussian functions</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Extensible basis set framework</li>
+                        </ul>
+                        <div class="mt-4 text-muted">
+                            Implementation: C++
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Component 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tech-component">
+                        <div class="icon-circle">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-center mb-4">Input/Output System</h3>
+                        <p>
+                            User interface and I/O components:
+                        </p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Molecular geometry parser</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Calculation parameter configuration</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Formatted output generation</li>
+                            <li class="mb-2"><i class="fas fa-check text-turquoise me-2"></i> Results analysis and visualization</li>
+                        </ul>
+                        <div class="mt-4 text-muted">
+                            Implementation: C++
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Algorithms Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Key Algorithms</h2>
+            <div class="card p-4 mb-5" data-aos="fade-up">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="algorithm-card">
+                            <h3 class="mb-4">Self-Consistent Field (SCF) Method</h3>
+                            <p>The iterative procedure for solving the Hartree-Fock equations:</p>
+                            <ol>
+                                <li class="mb-2">Initialize density matrix from guess orbitals</li>
+                                <li class="mb-2">Compute Fock matrix from density matrix</li>
+                                <li class="mb-2">Diagonalize Fock matrix to get new orbital coefficients</li>
+                                <li class="mb-2">Form new density matrix from orbital coefficients</li>
+                                <li class="mb-2">Check for convergence (energy change, density change)</li>
+                                <li class="mb-2">If not converged, return to step 2</li>
+                            </ol>
+                            <div class="mt-4">
+                                <h5>Implementation Highlights:</h5>
+                                <ul>
+                                    <li class="mb-2">Direct inversion of iterative subspace (DIIS) acceleration</li>
+                                    <li class="mb-2">Damping for difficult convergence cases</li>
+                                    <li class="mb-2">Level shifting for open-shell systems</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="algorithm-card">
+                            <h3 class="mb-4">Integral Evaluation</h3>
+                            <p>Efficient computation of molecular integrals:</p>
+                            <ul>
+                                <li class="mb-2"><strong>Overlap integrals:</strong> ⟨χᵢ|χⱼ⟩</li>
+                                <li class="mb-2"><strong>Kinetic energy integrals:</strong> ⟨χᵢ|-½∇²|χⱼ⟩</li>
+                                <li class="mb-2"><strong>Nuclear attraction integrals:</strong> ⟨χᵢ|-Σₐ Zₐ/r₁ₐ|χⱼ⟩</li>
+                                <li class="mb-2"><strong>Two-electron integrals:</strong> ⟨χᵢχⱼ|1/r₁₂|χₖχₗ⟩</li>
+                            </ul>
+                            <div class="mt-4">
+                                <h5>Optimization Techniques:</h5>
+                                <ul>
+                                    <li class="mb-2">Screening based on integral bounds</li>
+                                    <li class="mb-2">Symmetry exploitation</li>
+                                    <li class="mb-2">Pre-computed Gaussian product rules</li>
+                                    <li class="mb-2">Efficient recursion relations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Code Sample -->
+            <h3 class="text-center mb-4" data-aos="fade-up">Code Sample: SCF Loop</h3>
+            <div class="code-block mb-5" data-aos="fade-up">
+<pre><span class="comment">// Main SCF iteration loop for RHF method</span>
+<span class="keyword">bool</span> <span class="function">scf_rhf</span>(<span class="keyword">const</span> BasisSet& basis, Molecule& mol, <span class="keyword">double</span> convergence_threshold) {
+    <span class="keyword">int</span> maxiter = 100;
+    <span class="keyword">int</span> iter = 0;
+    <span class="keyword">double</span> energy = 0.0;
+    <span class="keyword">double</span> energy_prev = 0.0;
+    <span class="keyword">double</span> delta_e = 0.0;
+    
+    <span class="comment">// Initialize density matrix from core Hamiltonian</span>
+    Matrix D = Matrix::Zero(basis.nbf(), basis.nbf());
+    
+    <span class="comment">// Compute and store one-electron integrals</span>
+    Matrix S = overlap(basis);
+    Matrix T = kinetic(basis);
+    Matrix V = nuclear(basis, mol);
+    Matrix H = T + V;
+    
+    <span class="comment">// Compute orthogonalization matrix X</span>
+    Matrix X = compute_orthogonalization_matrix(S);
+    
+    <span class="comment">// Start SCF iterations</span>
+    <span class="keyword">while</span> (iter < maxiter) {
+        <span class="comment">// Form Fock matrix</span>
+        Matrix F = H;
+        <span class="keyword">for</span> (<span class="keyword">int</span> mu = 0; mu < basis.nbf(); ++mu) {
+            <span class="keyword">for</span> (<span class="keyword">int</span> nu = 0; nu < basis.nbf(); ++nu) {
+                <span class="keyword">for</span> (<span class="keyword">int</span> lambda = 0; lambda < basis.nbf(); ++lambda) {
+                    <span class="keyword">for</span> (<span class="keyword">int</span> sigma = 0; sigma < basis.nbf(); ++sigma) {
+                        <span class="keyword">double</span> eri = two_electron_integral(basis, mu, nu, lambda, sigma);
+                        F(mu, nu) += D(lambda, sigma) * (2.0 * eri - eri_exchange(basis, mu, lambda, nu, sigma));
+                    }
+                }
+            }
+        }
+        
+        <span class="comment">// Transform Fock matrix to orthogonal basis</span>
+        Matrix F_prime = X.transpose() * F * X;
+        
+        <span class="comment">// Solve eigenvalue problem</span>
+        Eigen::SelfAdjointEigenSolver<Matrix> solver(F_prime);
+        Matrix C_prime = solver.eigenvectors();
+        Matrix C = X * C_prime;
+        
+        <span class="comment">// Form new density matrix</span>
+        Matrix D_new = Matrix::Zero(basis.nbf(), basis.nbf());
+        <span class="keyword">int</span> n_occ = mol.n_electrons() / 2;
+        <span class="keyword">for</span> (<span class="keyword">int</span> mu = 0; mu < basis.nbf(); ++mu) {
+            <span class="keyword">for</span> (<span class="keyword">int</span> nu = 0; nu < basis.nbf(); ++nu) {
+                <span class="keyword">for</span> (<span class="keyword">int</span> i = 0; i < n_occ; ++i) {
+                    D_new(mu, nu) += 2.0 * C(mu, i) * C(nu, i);
+                }
+            }
+        }
+        
+        <span class="comment">// Calculate electronic energy</span>
+        energy = 0.0;
+        <span class="keyword">for</span> (<span class="keyword">int</span> mu = 0; mu < basis.nbf(); ++mu) {
+            <span class="keyword">for</span> (<span class="keyword">int</span> nu = 0; nu < basis.nbf(); ++nu) {
+                energy += 0.5 * D_new(mu, nu) * (H(mu, nu) + F(mu, nu));
+            }
+        }
+        
+        <span class="comment">// Add nuclear repulsion energy</span>
+        energy += nuclear_repulsion_energy(mol);
+        
+        <span class="comment">// Check convergence</span>
+        delta_e = std::abs(energy - energy_prev);
+        <span class="keyword">if</span> (delta_e < convergence_threshold) {
+            <span class="keyword">return</span> <span class="keyword">true</span>;  <span class="comment">// Converged</span>
+        }
+        
+        <span class="comment">// Update for next iteration</span>
+        D = D_new;
+        energy_prev = energy;
+        iter++;
+    }
+    
+    <span class="keyword">return</span> <span class="keyword">false</span>;  <span class="comment">// Not converged within max iterations</span>
+}</pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="project-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Example Results</h2>
+            <div class="card p-4" data-aos="fade-up">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">Water Molecule (H₂O)</h3>
+                        <p>Calculation parameters:</p>
+                        <ul>
+                            <li><strong>Method:</strong> RHF</li>
+                            <li><strong>Basis Set:</strong> STO-3G</li>
+                            <li><strong>Geometry:</strong> Experimental</li>
+                        </ul>
+                        <p>Results:</p>
+                        <ul>
+                            <li><strong>Total Energy:</strong> -74.9659 Hartrees</li>
+                            <li><strong>HOMO-LUMO Gap:</strong> 0.6834 Hartrees</li>
+                            <li><strong>Dipole Moment:</strong> 1.8546 Debye</li>
+                            <li><strong>Convergence:</strong> 12 iterations</li>
+                        </ul>
+                        <a href="sample_outputs/H2O.dat" target="_blank" class="btn btn-outline-turquoise mt-3">
+                            <i class="fas fa-eye me-2"></i>View Output
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">Methane (CH₄)</h3>
+                        <p>Calculation parameters:</p>
+                        <ul>
+                            <li><strong>Method:</strong> RHF</li>
+                            <li><strong>Basis Set:</strong> STO-3G</li>
+                            <li><strong>Geometry:</strong> Optimized</li>
+                        </ul>
+                        <p>Results:</p>
+                        <ul>
+                            <li><strong>Total Energy:</strong> -39.7268 Hartrees</li>
+                            <li><strong>HOMO-LUMO Gap:</strong> 0.9104 Hartrees</li>
+                            <li><strong>Dipole Moment:</strong> 0.0000 Debye</li>
+                            <li><strong>Convergence:</strong> 9 iterations</li>
+                        </ul>
+                        <a href="sample_outputs/ch4.dat" target="_blank" class="btn btn-outline-turquoise mt-3">
+                            <i class="fas fa-eye me-2"></i>View Output
+                        </a>
+                    </div>
+                </div>
+                <div class="row g-4 mt-3">
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">Ammonia (NH₃)</h3>
+                        <p>Calculation parameters:</p>
+                        <ul>
+                            <li><strong>Method:</strong> RHF</li>
+                            <li><strong>Basis Set:</strong> STO-3G</li>
+                        </ul>
+                        <p>Results:</p>
+                        <ul>
+                            <li><strong>Total Energy:</strong> -54.0445 Hartrees</li>
+                            <li><strong>Population Analysis:</strong> N (-0.754), H (+0.251 each)</li>
+                        </ul>
+                        <a href="sample_outputs/NH3.dat" target="_blank" class="btn btn-outline-turquoise mt-3">
+                            <i class="fas fa-eye me-2"></i>View Output
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">Oxygen Molecule (O₂)</h3>
+                        <p>Calculation parameters:</p>
+                        <ul>
+                            <li><strong>Method:</strong> UHF</li>
+                            <li><strong>Basis Set:</strong> STO-3G</li>
+                            <li><strong>Multiplicity:</strong> 3 (triplet)</li>
+                        </ul>
+                        <p>Results:</p>
+                        <ul>
+                            <li><strong>Total Energy:</strong> -144.0911 Hartrees</li>
+                            <li><strong>UHF &lt;S²&gt;:</strong> 2.0008 (vs. exact 2.0000)</li>
+                        </ul>
+                        <a href="sample_outputs/o2.dat" target="_blank" class="btn btn-outline-turquoise mt-3">
+                            <i class="fas fa-eye me-2"></i>View Output
+                        </a>
+                    </div>
+                </div>
+                <div class="row g-4 mt-3">
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">Hydrazine (N₂H₄)</h3>
+                        <p>Calculation parameters:</p>
+                        <ul>
+                            <li><strong>Method:</strong> RHF</li>
+                            <li><strong>Basis Set:</strong> STO-3G</li>
+                        </ul>
+                        <p>Results:</p>
+                        <ul>
+                            <li><strong>Total Energy:</strong> -107.8792 Hartrees</li>
+                            <li><strong>N-N Bond:</strong> Demonstrates single bond electron distribution</li>
+                        </ul>
+                        <a href="sample_outputs/n2h4.dat" target="_blank" class="btn btn-outline-turquoise mt-3">
+                            <i class="fas fa-eye me-2"></i>View Output
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">Benzene (C₆H₆)</h3>
+                        <p>Calculation parameters:</p>
+                        <ul>
+                            <li><strong>Method:</strong> RHF</li>
+                            <li><strong>Basis Set:</strong> STO-3G</li>
+                            <li><strong>Structure:</strong> Aromatic ring with D6h symmetry</li>
+                        </ul>
+                        <p>Results:</p>
+                        <ul>
+                            <li><strong>Total Energy:</strong> Demonstrates ability to handle larger molecular systems</li>
+                            <li><strong>Aromaticity:</strong> Shows delocalized π-electron system</li>
+                            <li><strong>Computational Challenge:</strong> Higher demand due to increased electron count and basis functions</li>
+                        </ul>
+                        <a href="sample_outputs/c6h6 rhf.dat" target="_blank" class="btn btn-outline-turquoise mt-3">
+                            <i class="fas fa-eye me-2"></i>View Output
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features & Future Work -->
+    <section class="project-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 p-4" data-aos="fade-up">
+                        <h2 class="mb-4">Key Features</h2>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Ab initio quantum chemistry calculations</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Support for closed-shell and open-shell systems</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> STO-nG basis set implementation</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Self-consistent field convergence acceleration</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Wavefunction analysis tools</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Modular, extensible architecture</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-turquoise me-2"></i> Detailed calculation output and visualization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 p-4" data-aos="fade-up" data-aos-delay="100">
+                        <h2 class="mb-4">Future Enhancements</h2>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Density Functional Theory (DFT) implementation</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Advanced correlation methods (MP2, CCSD)</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Expanded basis set library</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Geometry optimization capabilities</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Frequency calculations and thermochemistry</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Parallel computation for large systems</li>
+                            <li class="mb-3"><i class="fas fa-arrow-right text-gold me-2"></i> Interactive graphical user interface</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container mt-5 mb-4">
+        <div class="card p-3" style="border: 1px solid #20B2AE; background-color: rgba(10, 16, 30, 0.7);">
+            <div class="text-center" style="font-size: 0.95rem; color: #e2e8f0;">
+                <p><strong>Note:</strong> This project is officially registered as part of my academic coursework at BITS Pilani. It reflects significant original effort, research, and development, and is protected under institutional intellectual property policies. Unauthorized copying, reproduction, or derivative use—whether in part or in full—is strictly discouraged and may lead to academic or legal consequences. If you find this work inspiring or would like to collaborate or learn more, feel free to reach out!!</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="text-align: center; font-size: 0.8rem; opacity: 0.7;">
+              © 2025 Prateek Saxena. All rights reserved. Original visual theme and code custom-built. Please do not replicate without permission.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Generate stars for background
+        function generateStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random star properties
+                const size = Math.random() * 3;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 3 + Math.random() * 4;
+                const opacity = 0.2 + Math.random() * 0.8;
+                
+                // Apply styles
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.animationDelay = `${delay}s`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.opacity = opacity;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            generateStars();
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+
+    
+</body>
+</html> 
