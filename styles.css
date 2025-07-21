@@ -465,6 +465,9 @@ nav ul {
     width: 230px;
     height: 230px;
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: all 0.5s ease;
 }
 
@@ -962,6 +965,11 @@ footer {
         width: 150px;
         height: 150px;
     }
+
+    .sun-wrapper {
+        width: 150px;
+        height: 150px;
+    }
     
     .btn {
         padding: 0.5rem 1rem;
@@ -1007,6 +1015,11 @@ footer {
 
 @media (max-width: 576px) {
     .profile-image-container {
+        width: 200px;
+        height: 200px;
+    }
+
+    .sun-wrapper {
         width: 200px;
         height: 200px;
     }
