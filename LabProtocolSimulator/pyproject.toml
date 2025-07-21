@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "briefcase"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chemengsim"
+version = "0.1.0"
+description = "A comprehensive simulation app for chemical engineering lab experiments"
+authors = [
+    {name = "Chemical Engineering Lab", email = "info@chemengsim.com"}
+]
+readme = "README_ANDROID.md"
+requires-python = ">=3.8"
+dependencies = [
+    "docxtpl>=0.19.1",
+    "matplotlib>=3.7.5",
+    "numpy>=1.24.4",
+    "openpyxl>=3.1.5",
+    "pandas>=2.0.3",
+    "pdfkit>=1.0.0",
+    "plotly>=6.0.1",
+    "python-docx>=1.1.2",
+    "scipy>=1.10.1",
+    "streamlit>=1.40.1",
+    "xlsxwriter>=3.2.2",
+]
+
+[project.license]
+text = "MIT"
+dependencies = [
+    "briefcase>=0.3.19",
+    "kivy>=2.3.1",
+    "kivymd>=1.2.0",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "scipy",
+    "streamlit",
+    "toga>=0.4.6",
+]
+
+[tool.setuptools]
+packages = ["chemengsim", "chemengsim.experiments", "chemengsim.quizzes", "chemengsim.videos", "chemengsim.report_generation"]
+
+[tool.briefcase]
+project_name = "ChemicalEngineeringLabSimulator"
+bundle = "com.chemengsim"
+version = "0.1.0"
+url = "https://example.com/chemeng-simulator"
+author = "Chemical Engineering Lab"
+author_email = "info@chemengsim.com"
+
+[tool.briefcase.app.chemengsim]
+formal_name = "Chemical Engineering Lab Simulator"
+description = "A comprehensive simulation app for chemical engineering lab experiments"
+sources = ["chemengsim"]
+requires = [
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "scipy",
+    "streamlit",
+    "kivy",
+    "kivymd"
+]
+
+[tool.briefcase.app.chemengsim.android]
+requires = [
+    "toga-android>=0.5.0",
+]
+
+android_sdk = "44"  # Android 14
+android_ndk = "25"  # Latest NDK version
+android_min_sdk = "26"  # Android 8.0
+android_permissions = [
+    "android.permission.INTERNET",
+    "android.permission.ACCESS_NETWORK_STATE",
+]
+android_services = []
