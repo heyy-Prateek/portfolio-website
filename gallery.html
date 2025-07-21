@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Prateek Saxena</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .gallery-section {
+            padding: 3rem 0;
+        }
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .slider img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+        }
+        .slider button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+        .slider button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .slider .prev {
+            left: 10px;
+        }
+        .slider .next {
+            right: 10px;
+        }
+        .page-header h1 {
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars"></div>
+
+    <!-- Back to Home Button -->
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+
+    <!-- Page Header -->
+    <header class="page-header py-5">
+        <div class="container text-center">
+            <h1 data-aos="fade-down">Gallery</h1>
+        </div>
+    </header>
+
+    <!-- Gallery Sections -->
+    <section class="gallery-section" id="lic">
+        <div class="container-fluid text-center px-0" data-aos="fade-up">
+            <h2>Felicitation by LIC Head, Bareilly</h2>
+            <p>A proud milestone—being awarded by the LIC Head, Bareilly, for achieving the highest sales. This moment reminds me that dedication, even in small steps, earns big recognition.</p>
+            <div class="slider" data-gallery="lic">
+                <button class="prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                <img src="gallery/LIC/IMG_20220126_121915.jpg" alt="LIC Award">
+                <button class="next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="massoorie">
+        <div class="container-fluid text-center px-0" data-aos="fade-up">
+            <h2>PS-II Internship: Trip to Mussoorie</h2>
+            <p>Beyond spreadsheets and project reports, the PS-II journey gifted unforgettable memories. Mussoorie’s hills were not just a getaway—they were a breath of reflection and friendship.</p>
+            <div class="slider" data-gallery="massoorie">
+                <button class="prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                <img src="gallery/Massoorie/WhatsApp%20Image%202025-07-21%20at%2021.25.23_62140579.jpg" alt="Mussoorie Trip">
+                <button class="next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="tirupati">
+        <div class="container-fluid text-center px-0" data-aos="fade-up">
+            <h2>Sacred Journey to Tirupati</h2>
+            <p>A spiritual pause in life’s race. My visit to Tirupati wasn’t just a pilgrimage—it was a reminder of faith, purpose, and silent strength.</p>
+            <div class="slider" data-gallery="tirupati">
+                <button class="prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                <img src="gallery/Tirupati/IMG_20241231_093309.jpg" alt="Tirupati Trip">
+                <button class="next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section" id="cherished">
+        <div class="container-fluid text-center px-0" data-aos="fade-up">
+            <h2>Cherished Moments</h2>
+            <p>From college corridors to hilltops and divine temples—every snapshot here tells a story, each one close to my heart and shaping who I am becoming.</p>
+            <div class="slider" data-gallery="cherished">
+                <button class="prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                <img src="gallery/cherished%20Moments/IMG_20240218_190811.jpg" alt="Cherished Moments">
+                <button class="next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/heyy-Prateek"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/prateek-saxena-35845219a/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:f20212756@pilani.bits-pilani.ac.in"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="text-align: center; font-size: 0.8rem; opacity: 0.7;">
+              © 2025 Prateek Saxena. All rights reserved. Original visual theme and code custom-built. Please do not replicate without permission.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Gallery Script -->
+    <script src="gallery.js"></script>
+    <script>
+        // Generate stars for background
+        function generateStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 200;
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                const size = Math.random() * 3;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 3 + Math.random() * 4;
+                const opacity = 0.2 + Math.random() * 0.8;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.animationDelay = `${delay}s`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.opacity = opacity;
+                starsContainer.appendChild(star);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            generateStars();
+            AOS.init({ duration: 800, once: true, offset: 100 });
+        });
+    </script>
+</body>
+</html>
