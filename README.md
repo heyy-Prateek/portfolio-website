@@ -39,7 +39,7 @@ git clone [your-repository-url]
 
 2. Navigate to the project directory:
 ```bash
-cd portfolio
+cd portfolio-website
 ```
 
 3. Open `index.html` in your web browser to view the website.

@@ -389,6 +389,22 @@ overlay.classList.add("active");
         }, 5000);
     });
 });
+// Initialize AOS animations
+function initAOS() {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+            delay: 50,
+            easing: "ease-in-out"
+        });
+        setTimeout(() => {
+            AOS.refresh();
+        }, 300);
+    }
+}
+
 
 
 // Document ready
