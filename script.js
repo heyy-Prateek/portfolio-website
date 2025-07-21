@@ -81,9 +81,9 @@ function initParticlesBackground() {
                 baseOpacity: 0.3 + Math.random() * 0.3,
                 twinkle: Math.random() * Math.PI * 2,
                     colorRGB: {
-                        r: 23 + Math.random() * 20,
-                        g: 133 + Math.random() * 20,
-                        b: 130 + Math.random() * 20
+                        r: 160 + Math.random() * 20,
+                        g: 80 + Math.random() * 20,
+                        b: 220 + Math.random() * 20
                     },
     speedX: Math.random() * 0.5 - 0.25,
     speedY: Math.random() * 0.5 - 0.25
@@ -125,7 +125,7 @@ function initParticlesBackground() {
     
                 if (distance < 100) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(23, 133, 130, ${0.1 * (1 - distance / 100)})`;
+                    ctx.strokeStyle = `rgba(160, 80, 220, ${0.1 * (1 - distance / 100)})`;
                     ctx.lineWidth = 0.5;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
