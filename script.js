@@ -33,9 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Initialize dark mode toggle
         initDarkModeToggle();
-        
+
         // Initialize smooth scrolling
         initSmoothScrolling();
+
+        // Initialize mobile navigation
+        initMobileNav();
         
         // Flag that components are initialized
         window.componentsInitialized = true;
@@ -78,9 +81,9 @@ function initParticlesBackground() {
                 baseOpacity: 0.3 + Math.random() * 0.3,
                 twinkle: Math.random() * Math.PI * 2,
                     colorRGB: {
-                        r: 23 + Math.random() * 20,
-                        g: 133 + Math.random() * 20,
-                        b: 130 + Math.random() * 20
+                        r: 160 + Math.random() * 20,
+                        g: 80 + Math.random() * 20,
+                        b: 220 + Math.random() * 20
                     },
     speedX: Math.random() * 0.5 - 0.25,
     speedY: Math.random() * 0.5 - 0.25
@@ -122,7 +125,7 @@ function initParticlesBackground() {
     
                 if (distance < 100) {
                     ctx.beginPath();
-                    ctx.strokeStyle = `rgba(23, 133, 130, ${0.1 * (1 - distance / 100)})`;
+                    ctx.strokeStyle = `rgba(160, 80, 220, ${0.1 * (1 - distance / 100)})`;
                     ctx.lineWidth = 0.5;
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
@@ -300,6 +303,26 @@ function initFormValidation() {
     }
 }
 
+// Mobile navigation toggle
+function initMobileNav() {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('header nav');
+
+    if (toggle && nav && !toggle.hasAttribute('data-nav-init')) {
+        toggle.setAttribute('data-nav-init', 'true');
+
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+            });
+        });
+    }
+}
+
 // Dark mode toggle
 function initDarkModeToggle() {
     const toggle = document.querySelector('.dark-mode-toggle');
@@ -416,6 +439,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectFilter();
     initFormValidation();
     initDarkModeToggle();
+    initMobileNav();
     
     // Initialize libraries if available
     setTimeout(() => {
