@@ -390,20 +390,3 @@ overlay.classList.add("active");
     });
 });
 
-
-// Document ready
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
-    initParticlesBackground();
-    initSmoothScrolling();
-    initProjectHoverEffects();
-    initProjectFilter();
-    initFormValidation();
-    initDarkModeToggle();
-    
-    // Initialize libraries if available
-    setTimeout(() => {
-        initTypedEffect();
-        initAOS();
-    }, 500);
-}); 

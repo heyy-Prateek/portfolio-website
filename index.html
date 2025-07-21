@@ -225,21 +225,21 @@
     </div>
 
     <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" defer></script>
     
     <!-- Typed.js -->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
     
     <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
     
     <!-- Custom JS -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <script>
         // Generate stars for background
         function generateStars() {
             const starsContainer = document.querySelector('.stars');
-            const starCount = 200;
+            const starCount = 100;
             
             for (let i = 0; i < starCount; i++) {
                 const star = document.createElement('div');
