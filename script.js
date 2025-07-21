@@ -33,9 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Initialize dark mode toggle
         initDarkModeToggle();
-        
+
         // Initialize smooth scrolling
         initSmoothScrolling();
+
+        // Initialize mobile navigation
+        initMobileNav();
         
         // Flag that components are initialized
         window.componentsInitialized = true;
@@ -300,6 +303,26 @@ function initFormValidation() {
     }
 }
 
+// Mobile navigation toggle
+function initMobileNav() {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('header nav');
+
+    if (toggle && nav && !toggle.hasAttribute('data-nav-init')) {
+        toggle.setAttribute('data-nav-init', 'true');
+
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+            });
+        });
+    }
+}
+
 // Dark mode toggle
 function initDarkModeToggle() {
     const toggle = document.querySelector('.dark-mode-toggle');
@@ -416,6 +439,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectFilter();
     initFormValidation();
     initDarkModeToggle();
+    initMobileNav();
     
     // Initialize libraries if available
     setTimeout(() => {
