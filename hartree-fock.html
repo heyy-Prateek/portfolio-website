@@ -868,6 +868,19 @@ STO-3G
         });
     </script>
 
-    
+    <!-- Floating Game Button -->
+    <a href="deep-space-explorer-heavygfx.html" class="play-game-btn" aria-label="Play Deep Space">Play Game</a>
+    <style>
+      .play-game-btn{
+        position:fixed; right:18px; bottom:18px; z-index:9999;
+        padding:.7rem 1rem; border-radius:999px; text-decoration:none;
+        background: var(--turquoise, #20b2ae); color: var(--text-dark, #0a101e);
+        font-weight:700; border:1px solid rgba(224,194,159,.25);
+        box-shadow:0 10px 24px rgba(0,0,0,.35), 0 0 16px rgba(32,178,174,.25);
+        transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
+      }
+      .play-game-btn:hover{ background:#42ccc8; transform: translateY(-1px); }
+      .play-game-btn:active{ transform: translateY(1px); }
+    </style>
 </body>
 </html> 
