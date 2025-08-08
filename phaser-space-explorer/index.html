@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Space Explorer - Phaser</title>
+  <!-- Phaser 3 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser.js"></script>
+  <style>
+    body,html{margin:0;padding:0;overflow:hidden;background:#05070d;color:#e5e7eb;font-family:sans-serif;}
+    #hud{position:absolute;top:8px;left:8px;right:8px;display:flex;justify-content:space-between;pointer-events:none;z-index:10;}
+    .pill{background:rgba(10,16,30,.65);border:1px solid rgba(224,194,159,.22);border-radius:999px;padding:4px 10px;margin:0 4px;font-weight:600;}
+    #help{position:absolute;bottom:8px;right:8px;font-size:12px;background:rgba(10,16,30,.65);border:1px solid rgba(224,194,159,.22);padding:4px 8px;border-radius:8px;pointer-events:none;z-index:10;}
+    /* Photo mode hides HUD by toggling class */
+    .hidden{display:none;}
+  </style>
+</head>
+<body>
+  <div id="hud">
+    <div class="pill">Discoveries: <span id="disc">0</span></div>
+    <div class="pill">Hull: <span id="hull">3</span></div>
+    <div class="pill">Sector: <span id="sector">-</span></div>
+  </div>
+  <div id="help">Move: WASD / Left Stick · Shoot: Space/A · Scan: E/X · Shield: Shift/LB · Pause: Esc/Start</div>
+  <!-- Game code -->
+  <script type="module" src="game.js"></script>
+</body>
+</html>
