@@ -2,6 +2,8 @@
 
 A modern, interactive portfolio website showcasing my projects and professional journey. Built with a focus on user experience, animations, and responsive design.
 
+Visit the live site at [heyy-prateek.vercel.app](https://heyy-prateek.vercel.app).
+
 ## 🌟 Features
 
 - **Interactive Splash Screen**: Engaging rocket animation with countdown
