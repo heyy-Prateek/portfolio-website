@@ -16,10 +16,21 @@ Visit the live site at [heyy-prateek.vercel.app](https://heyy-prateek.vercel.app
   - Back to top button
   - Project filtering system
 - **Starry Background**: Dynamic star field animation
-- **Project Showcase**: 
+- **Project Showcase**:
   - Filterable project categories
   - Detailed project cards with tags
   - Smooth transitions between projects
+
+## 🕹️ Deep Space Explorer Game
+
+Deep Space Explorer is a mini-game built with Phaser 3 where you pilot a ship through procedurally generated star sectors. Scan planets, fend off enemies, and jump to new regions as you make discoveries.
+
+### Game Features
+
+- **Procedural Sectors**: Dynamic starfields populated with planets and nebulae
+- **Discovery System**: Scan celestial bodies to log discoveries and trigger hyperspace jumps
+- **Combat & Defense**: Shoot enemies, raise shields, and manage limited hull integrity
+- **Flexible Controls**: Play with keyboard or gamepad, including a photo mode toggle
 
 ## 🛠️ Technologies Used
 
