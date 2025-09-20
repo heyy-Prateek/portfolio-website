@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Enabled Climate & BRSR Dashboard | Prateek Saxena</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Project Page Specific Styles */
+        .project-hero {
+            padding: 8rem 0 4rem;
+            position: relative;
+        }
+        
+        .project-section {
+            padding: 5rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .research-component {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            transition: transform var(--animation-medium) ease, box-shadow var(--animation-medium) ease;
+        }
+        
+        .research-component:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(32, 178, 174, 0.3);
+        }
+        
+        .focus-area {
+            background-color: rgba(10, 16, 30, 0.5);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.1);
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(32, 178, 174, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .icon-circle i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .back-button:hover {
+            background-color: var(--turquoise);
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+
+        .badge-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            background: rgba(32, 178, 174, 0.15);
+            border: 1px solid rgba(32, 178, 174, 0.35);
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+        }
+
+        .highlight-card {
+            background-color: rgba(10, 16, 30, 0.6);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(224, 194, 159, 0.15);
+            padding: 1.5rem;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars"></div>
+
+    <!-- Back to Projects Button -->
+    <a href="index.html#projects" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
+
+    <!-- Project Hero Section -->
+    <section id="hero" class="project-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h1 class="text-center mb-5" data-aos="fade-up">AI-Enabled Climate & BRSR Dashboard</h1>
+                    <div class="card p-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-8">
+                                <p class="lead mb-4">
+                                    Unified analytics linking SEBI BRSR disclosures with national & global climate indicators—powered by Retrieval-Augmented Generation (RAG) for search, extraction, and auto-generated visuals.
+                                </p>
+                                
+                                <div class="d-flex flex-wrap gap-3 mb-4">
+                                    <a href="#methodology" class="btn btn-outline-light">
+                                        <i class="fas fa-chart-line me-2"></i>Explore Dashboard (Demo)
+                                    </a>
+                                    <a href="#methodology" class="btn btn-outline-secondary">
+                                        <i class="fas fa-book me-2"></i>Read Methodology
+                                    </a>
+                                </div>
+                                
+                                <div class="badge-grid">
+                                    <span class="tech-badge">Automotive OEM Pilot</span>
+                                    <span class="tech-badge">AI-RAG</span>
+                                    <span class="tech-badge">Benchmarking</span>
+                                    <span class="tech-badge">Extensible</span>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4 d-flex align-items-center justify-content-center">
+                                <img src="ai-enabled-dashboard.png" alt="AI-Enabled Climate & BRSR Dashboard" class="img-fluid rounded shadow">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Problem Section -->
+    <section id="problem" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">The Problem</h2>
+                        <p>Climate indicators (GHG inventories, energy mix, adaptation readiness) and corporate sustainability disclosures (SEBI's BRSR) live in silos. Policymakers, researchers, and industry leaders lack a single pane of glass to correlate company-level KPIs with national/sectoral climate context—slowing compliance tracking, benchmarking, and decarbonization planning.</p>
+                        <div class="text-end mt-3">
+                            <a href="#objectives" class="text-gold text-decoration-none">Next: Objectives <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives Section -->
+    <section id="objectives" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Objectives</h2>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3"><i class="fas fa-chart-line text-gold me-3"></i>Visualize climate indicators (GHG, energy mix, adaptation) with sector filters and timelines.</li>
+                            <li class="mb-3"><i class="fas fa-building text-gold me-3"></i>Integrate BRSR data to assess sustainability performance of Indian industries.</li>
+                            <li class="mb-3"><i class="fas fa-globe text-gold me-3"></i>Enable global and sector-specific comparisons (India vs peers; agriculture/energy/industry).</li>
+                            <li class="mb-3"><i class="fas fa-robot text-gold me-3"></i>Add an AI-RAG agent that answers natural-language queries and auto-builds charts.</li>
+                        </ul>
+                        <div class="text-end mt-3">
+                            <a href="#methodology" class="text-gold text-decoration-none">Next: Methodology <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section id="methodology" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Methodology</h2>
+                        <div class="row g-4">
+                            <div class="col-lg-8">
+                                <ul class="list-unstyled">
+                                    <li class="mb-3"><i class="fas fa-database text-gold me-3"></i><strong>Data Integration:</strong> parsers for BRSR PDFs; API/CSV pulls for climate/energy datasets; cleaning & normalization (units, timelines, terms).</li>
+                                    <li class="mb-3"><i class="fas fa-desktop text-gold me-3"></i><strong>Dashboard Design:</strong> responsive UI, filters by sector, timeframe, country/company.</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle text-gold me-3"></i><strong>Validation:</strong> data reliability tests, stakeholder UX sessions, speed optimization for large queries.</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <h5>Architecture</h5>
+                                    <p class="small">End-to-end pipeline from data ingestion to interactive visualization</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#data-sources" class="text-gold text-decoration-none">Next: Data Sources <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Sources Section -->
+    <section id="data-sources" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Data Sources</h2>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-globe text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                    <h6>UNFCCC GHG Inventory</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-thermometer-half text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                    <h6>ND-GAIN Climate Index</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-chart-bar text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                    <h6>IMF Climate Dashboard</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-database text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                    <h6>Our World in Data</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-file-alt text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                    <h6>SEBI BRSR filings (NSE portal)</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-bolt text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                    <h6>India Energy Dashboard (NITI Aayog)</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-light btn-sm" onclick="toggleSources()">
+                                <i class="fas fa-eye me-2"></i>View Sources
+                            </button>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#features" class="text-gold text-decoration-none">Next: Features <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Features</h2>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-layer-group"></i>
+                                    </div>
+                                    <h5>Combined View</h5>
+                                    <p>Align corporate KPIs (e.g., Scope-1/2/3, water) with national energy/climate context.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </div>
+                                    <h5>Benchmarking</h5>
+                                    <p>Compare companies vs domestic peers, global rivals, and sector baselines.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <h5>Query in Plain English</h5>
+                                    <p>Ask "Top 5 auto OEMs by water consumption in 2024?" and get a chart + cited facts.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#rag-agent" class="text-gold text-decoration-none">Next: RAG Agent <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RAG Agent Section -->
+    <section id="rag-agent" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">RAG Agent</h2>
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-8">
+                                <p class="mb-4">The RAG agent retrieves relevant BRSR/climate facts from the integrated store, then composes answers grounded in those facts—reducing hallucinations and dynamically generating visuals (Matplotlib/Plotly) when needed.</p>
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-search text-gold me-3"></i>Intent detection</li>
+                                    <li class="mb-2"><i class="fas fa-arrow-right text-gold me-3"></i>Retrieval</li>
+                                    <li class="mb-2"><i class="fas fa-edit text-gold me-3"></i>Compose</li>
+                                    <li class="mb-2"><i class="fas fa-chart-pie text-gold me-3"></i>Chart render</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <h5>AI-Powered</h5>
+                                    <p class="small">Grounded reasoning with dynamic visualization</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#sector-pilot" class="text-gold text-decoration-none">Next: Sector Pilot <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sector Pilot Section -->
+    <section id="sector-pilot" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Sector Pilot & Scalability</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h4 class="text-gold mb-3">Automotive OEM Pilot</h4>
+                                    <p>Chosen for energy intensity, complex supply chains, fleet-emissions regulation.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h4 class="text-gold mb-3">Scalable Next</h4>
+                                    <p>Minerals, Textiles, Petrochemicals, Cement, etc. (architecture is sector-agnostic).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#results" class="text-gold text-decoration-none">Next: Results <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Results & Insights</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-truck me-2"></i>Fleet Emissions (Road Transport)</h5>
+                                    <p>Heavy-duty trucks are the largest contributors despite lower counts; inventory built from VAHAN registrations using COPERT Tier-3 emission factors tuned to Indian conditions.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-car-battery me-2"></i>BEV vs ICEV (Lifecycle)</h5>
+                                    <p>BEVs have higher production emissions (battery) but lower lifetime emissions; advantage increases as India's grid decarbonizes (e.g., ~943 → ~660 gCO₂/kWh by ~2030).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#deliverables" class="text-gold text-decoration-none">Next: Deliverables <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deliverables Section -->
+    <section id="deliverables" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Deliverables</h2>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3"><i class="fas fa-check-circle text-gold me-3"></i>Interactive climate & BRSR analytics dashboard (sector-wise + global comparisons).</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-gold me-3"></i>AI-powered RAG query agent with auto-charting.</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-gold me-3"></i>Prototype dashboards (e.g., Power BI) and demo chatbot.</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-gold me-3"></i>Methods write-up & presentation.</li>
+                        </ul>
+                        <div class="text-end mt-3">
+                            <a href="#attribution" class="text-gold text-decoration-none">Next: Attribution <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attribution Section -->
+    <section id="attribution" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Attribution</h2>
+                        <p>Work done at CSIR-IIP (Climate Change & Data Science), with guidance from Dr. Tuhin Suvra Khan and Dr. Sunil Pathak; authored by Prateek Saxena (BITS Pilani).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/heyy-Prateek"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/prateek-saxena-35845219a/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:f20212756@pilani.bits-pilani.ac.in"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="text-align: center; font-size: 0.8rem; opacity: 0.7;">
+              Ac 2025 Prateek Saxena. All rights reserved. Original visual theme and code custom-built. Please do not replicate without permission.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        function generateStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                const size = Math.random() * 3;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 3 + Math.random() * 4;
+                const opacity = 0.2 + Math.random() * 0.8;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.animationDelay = `${delay}s`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.opacity = opacity;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Toggle sources visibility
+        function toggleSources() {
+            const sourcesGrid = document.querySelector('#data-sources .row.g-3');
+            const button = document.querySelector('#data-sources button');
+            
+            if (sourcesGrid.style.display === 'none') {
+                sourcesGrid.style.display = 'flex';
+                button.innerHTML = '<i class="fas fa-eye-slash me-2"></i>Hide Sources';
+            } else {
+                sourcesGrid.style.display = 'none';
+                button.innerHTML = '<i class="fas fa-eye me-2"></i>View Sources';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            generateStars();
+            
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+
+    <!-- Floating Game Button -->
+    <a href="deep-space-explorer-heavygfx.html" class="play-game-btn" aria-label="Play Deep Space">Play Game</a>
+    <style>
+      .play-game-btn{
+        position:fixed; right:18px; bottom:18px; z-index:9999;
+        padding:.7rem 1rem; border-radius:999px; text-decoration:none;
+        background: var(--turquoise, #20b2ae); color: var(--text-dark, #0a101e);
+        font-weight:700; border:1px solid rgba(224,194,159,.25);
+        box-shadow:0 10px 24px rgba(0,0,0,.35), 0 0 16px rgba(32,178,174,.25);
+        transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
+      }
+      .play-game-btn:hover{ background:#42ccc8; transform: translateY(-1px); }
+      .play-game-btn:active{ transform: translateY(1px); }
+    </style>
+</body>
+</html>

@@ -40,7 +40,7 @@
             <div class="loading-bar"></div>
         </div>
         <div class="loading-text">INITIATING LAUNCH SEQUENCE</div>
-        <div class="countdown">5</div>
+        <div class="countdown">2</div>
         <button class="skip-intro" id="skip-intro">Skip Intro</button>
     </div>
 
@@ -66,6 +66,7 @@
                 <nav>
                     <ul class="m-0 gap-4">
                     <li><a href="#hero" class="nav-link">Home</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#resume" class="nav-link">Resume</a></li>
                     <li><a href="gallery.html" class="nav-link">Gallery</a></li>
@@ -105,6 +106,7 @@
                 </p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn slide-up">View My Projects</a>
+                    <a href="#skills" class="btn slide-up">View Skills</a>
                     <a href="resume/resume.pdf" class="btn slide-up" target="_blank" rel="noopener">View Resume</a>
                     <a href="#contact" class="btn btn-outline slide-up">Get In Touch</a>
                 </div>
@@ -112,7 +114,6 @@
         </div>
     </div>
 </section>
-
 
         <!-- Projects Section -->
         <section id="projects" class="py-5">
@@ -128,11 +129,77 @@
                     <button class="filter-btn" data-filter="chemistry">Chemistry</button>
                     <button class="filter-btn" data-filter="engineering">Engineering</button>
                     <button class="filter-btn" data-filter="simulation">Simulation</button>
+                    <button class="filter-btn" data-filter="ai">AI</button>
+                    <button class="filter-btn" data-filter="data-analytics">Data Analytics</button>
+                    <button class="filter-btn" data-filter="web-development">Web Development</button>
                 </div>
                 
                 <div class="row g-4">
-                    <!-- Project 1 -->
-                    <div class="col-md-4 project-card-container chemistry" data-aos="fade-up" data-aos-delay="100">
+                    <!-- Project 1 - AI Dashboard -->
+                    <div class="col-md-4 project-card-container ai data-analytics" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-card h-100 rounded p-3">
+                            <div class="card-image-container mb-3">
+                                <img src="ai-enabled-dashboard.png" alt="AI-Enabled Dashboard" class="rounded">
+                                <div class="project-overlay">
+                                    <div class="overlay-content">
+                                        <a href="ai-enabled-dashboard.html" class="btn view-project" data-project="ai-dashboard">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>AI-Enabled Climate Intelligence</h3>
+                            <p>Orchestrated an enterprise-scale AI platform for natural language querying of climate disclosures, powering predictive insights with multimodal LLM workflows.</p>
+                            <div class="project-tags mb-3">
+                                <span class="project-tag">AI</span>
+                                <span class="project-tag">LLM</span>
+                                <span class="project-tag">Sustainability</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 - CSIR Energy -->
+                    <div class="col-md-4 project-card-container ai data-analytics" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-card h-100 rounded p-3">
+                            <div class="card-image-container mb-3">
+                                <img src="csir-energy-dashboard.png" alt="CSIR Energy Optimization Dashboard" class="rounded">
+                                <div class="project-overlay">
+                                    <div class="overlay-content">
+                                        <a href="csir-energy-dashboard.html" class="btn view-project" data-project="csir-energy">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>CSIR Energy Optimization</h3>
+                            <p>Delivered a national-scale analytics cockpit for 35+ CSIR institutes with secure access, granular lab views, and competitive benchmarking.</p>
+                            <div class="project-tags mb-3">
+                                <span class="project-tag">Data Analytics</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Dashboards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 - Quiz Platform -->
+                    <div class="col-md-4 project-card-container web-development" data-aos="fade-up" data-aos-delay="300">
+                        <div class="project-card h-100 rounded p-3">
+                            <div class="card-image-container mb-3">
+                                <img src="monetized-quiz platform.png" alt="Monetized E-Learning Quiz Platform" class="rounded">
+                                <div class="project-overlay">
+                                    <div class="overlay-content">
+                                        <a href="monetized-quiz-platform.html" class="btn view-project" data-project="quiz-platform">View Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3>Monetized E-Learning Platform</h3>
+                            <p>Built a subscription-based quiz platform with Razorpay billing, automated resets, and tier-aware access controls for learning communities.</p>
+                            <div class="project-tags mb-3">
+                                <span class="project-tag">Web App</span>
+                                <span class="project-tag">React</span>
+                                <span class="project-tag">Payments</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 - Bioplastics -->
+                    <div class="col-md-4 project-card-container chemistry" data-aos="fade-up" data-aos-delay="400">
                         <div class="project-card h-100 rounded p-3">
                             <div class="card-image-container mb-3">
                                 <img src="bioplastic.png" alt="Bioplastic Project" class="rounded">
@@ -152,8 +219,8 @@
                         </div>
                     </div>
                     
-                    <!-- Project 2 -->
-                    <div class="col-md-4 project-card-container chemistry simulation" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Project 5 - Hartree-Fock -->
+                    <div class="col-md-4 project-card-container chemistry simulation" data-aos="fade-up" data-aos-delay="500">
                         <div class="project-card h-100 rounded p-3">
                             <div class="card-image-container mb-3">
                                 <img src="hartree fock.png" alt="Hartree-Fock Project" class="rounded">
@@ -172,14 +239,15 @@
                         </div>
                     </div>
                     
-                    <!-- Project 3 -->
-                    <div class="col-md-4 project-card-container engineering simulation" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Project 6 - Laboratory Simulator -->
+                    <div class="col-md-4 project-card-container engineering simulation" data-aos="fade-up" data-aos-delay="600">
                         <div class="project-card h-100 rounded p-3">
                             <div class="card-image-container mb-3">
                                 <img src="laboratory project.png" alt="Laboratory Project" class="rounded">
                                 <div class="project-overlay">
                                     <div class="overlay-content">
-                                        <a href="laboratory-project.html" class="btn view-project" data-project="lab">View Project</a>                                    </div>
+                                        <a href="laboratory-project.html" class="btn view-project" data-project="lab">View Project</a>
+                                    </div>
                                 </div>
                             </div>
                             <h3>Laboratory Simulator</h3>
@@ -189,6 +257,141 @@
                                 <span class="project-tag">Simulation</span>
                                 <span class="project-tag">Engineering</span>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Technical Skills</h2>
+                
+                <!-- Technical Skills -->
+                <div class="mb-5">
+                    <h4 class="text-center mb-4" style="color: var(--gold);">Programming & AI</h4>
+                    <div class="skills-grid d-flex flex-wrap justify-content-center align-items-center gap-4 mb-4">
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="skill-icon">
+                            <span class="skill-name">Python</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-icon">
+                            <span class="skill-name">C++</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" class="skill-icon">
+                            <span class="skill-name">NumPy</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="skill-icon">
+                            <span class="skill-name">Pandas</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-Learn" class="skill-icon">
+                            <span class="skill-name">Scikit-Learn</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL" class="skill-icon">
+                            <span class="skill-name">SQL</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" class="skill-icon">
+                            <span class="skill-name">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="mb-5">
+                    <h4 class="text-center mb-4" style="color: var(--gold);">Web Development</h4>
+                    <div class="skills-grid d-flex flex-wrap justify-content-center align-items-center gap-4 mb-4">
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="skill-icon">
+                            <span class="skill-name">HTML5</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="skill-icon">
+                            <span class="skill-name">CSS3</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon">
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="skill-icon">
+                            <span class="skill-name">React</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="skill-icon">
+                            <span class="skill-name">Next.js</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="skill-icon">
+                            <span class="skill-name">Tailwind CSS</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="skill-icon">
+                            <span class="skill-name">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & Data -->
+                <div class="mb-5">
+                    <h4 class="text-center mb-4" style="color: var(--gold);">AI & Data Science</h4>
+                    <div class="skills-grid d-flex flex-wrap justify-content-center align-items-center gap-4 mb-4">
+                        <div class="skill-item text-center">
+                            <i class="fas fa-brain skill-icon-font" style="color: var(--gold);"></i>
+                            <span class="skill-name">Machine Learning</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <i class="fas fa-robot skill-icon-font" style="color: var(--gold);"></i>
+                            <span class="skill-name">GenAI</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <i class="fas fa-search skill-icon-font" style="color: var(--gold);"></i>
+                            <span class="skill-name">AI-RAG</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <i class="fas fa-database skill-icon-font" style="color: var(--gold);"></i>
+                            <span class="skill-name">Vector Databases</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <i class="fas fa-comments skill-icon-font" style="color: var(--gold);"></i>
+                            <span class="skill-name">Prompt Engineering</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Management -->
+                <div class="mb-5">
+                    <h4 class="text-center mb-4" style="color: var(--turquoise);">Product Management</h4>
+                    <div class="skills-grid d-flex flex-wrap justify-content-center align-items-center gap-4 mb-4">
+                        <div class="skill-item text-center">
+                            <i class="fas fa-file-excel skill-icon-font" style="color: #1D6F42;"></i>
+                            <span class="skill-name">Excel</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <i class="fas fa-project-diagram skill-icon-font" style="color: var(--turquoise);"></i>
+                            <span class="skill-name">Lifecycle Management</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <i class="fas fa-users skill-icon-font" style="color: var(--turquoise);"></i>
+                            <span class="skill-name">Stakeholder Interaction</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <i class="fas fa-search-plus skill-icon-font" style="color: var(--turquoise);"></i>
+                            <span class="skill-name">User Research</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <i class="fas fa-route skill-icon-font" style="color: var(--turquoise);"></i>
+                            <span class="skill-name">Product Roadmapping</span>
+                        </div>
+                        <div class="skill-item text-center">
+                            <i class="fas fa-plug skill-icon-font" style="color: var(--turquoise);"></i>
+                            <span class="skill-name">API Fundamentals</span>
                         </div>
                     </div>
                 </div>
@@ -306,7 +509,7 @@
         // Countdown for splash screen
         function startCountdown() {
             const countdownEl = document.querySelector('.countdown');
-            let count = 5;
+            let count = 2;
             
             const interval = setInterval(() => {
                 count--;
@@ -478,7 +681,7 @@
                 
                 console.log('Emergency content display activated');
             }
-        }, 8000); // 8 second backup timer
+        }, 3000); // 3 second backup timer
     </script>
 
     <!-- Sun Effect Script -->
@@ -508,7 +711,7 @@
     <a href="deep-space-explorer-heavygfx.html" class="play-game-btn" aria-label="Play Deep Space">Play Game</a>
     <style>
       .play-game-btn{
-        position:fixed; right:18px; bottom:18px; z-index:9999;
+        position:fixed; right:18px; bottom:90px; z-index:9999;
         padding:.7rem 1rem; border-radius:999px; text-decoration:none;
         background: var(--turquoise, #20b2ae); color: var(--text-dark, #0a101e);
         font-weight:700; border:1px solid rgba(224,194,159,.25);

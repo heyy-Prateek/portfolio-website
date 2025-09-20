@@ -1,0 +1,29 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 400'>
+  <defs>
+    <linearGradient id='ai-bg' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#051937'/>
+      <stop offset='100%' stop-color='#1e3d59'/>
+    </linearGradient>
+    <linearGradient id='ai-node' x1='0%' y1='0%' x2='100%' y2='0%'>
+      <stop offset='0%' stop-color='#4fd1c5'/>
+      <stop offset='100%' stop-color='#2dd4bf'/>
+    </linearGradient>
+  </defs>
+  <rect width='640' height='400' fill='url(#ai-bg)' rx='24'/>
+  <rect x='80' y='70' width='480' height='260' rx='18' fill='rgba(10,25,48,0.75)' stroke='#38bdf8' stroke-width='2'/>
+  <rect x='120' y='110' width='160' height='80' rx='12' fill='rgba(42, 72, 120, 0.6)' stroke='#60a5fa'/>
+  <rect x='360' y='110' width='160' height='60' rx='12' fill='rgba(42, 72, 120, 0.6)' stroke='#60a5fa'/>
+  <rect x='360' y='190' width='160' height='60' rx='12' fill='rgba(37, 121, 101, 0.7)' stroke='#2dd4bf'/>
+  <circle cx='200' cy='250' r='40' fill='url(#ai-node)' opacity='0.9'/>
+  <circle cx='320' cy='230' r='22' fill='url(#ai-node)' opacity='0.8'/>
+  <circle cx='440' cy='270' r='32' fill='url(#ai-node)' opacity='0.85'/>
+  <line x1='200' y1='250' x2='320' y2='230' stroke='#38bdf8' stroke-width='4' stroke-linecap='round' opacity='0.65'/>
+  <line x1='320' y1='230' x2='440' y2='270' stroke='#2dd4bf' stroke-width='4' stroke-linecap='round' opacity='0.7'/>
+  <circle cx='320' cy='230' r='6' fill='#0f172a'/>
+  <circle cx='440' cy='270' r='6' fill='#0f172a'/>
+  <circle cx='200' cy='250' r='6' fill='#0f172a'/>
+  <text x='120' y='95' fill='#93c5fd' font-family='Poppins, sans-serif' font-size='20'>Climate & ESG Intelligence</text>
+  <text x='140' y='145' fill='#e2e8f0' font-family='Space Mono, monospace' font-size='14'>Natural Language Queries</text>
+  <text x='380' y='145' fill='#e2e8f0' font-family='Space Mono, monospace' font-size='14'>RAG Pipelines</text>
+  <text x='380' y='225' fill='#0f172a' font-family='Space Mono, monospace' font-size='14'>Predictive Insights</text>
+</svg>

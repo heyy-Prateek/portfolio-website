@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSIR Energy Dashboard — Optimization & Insights | Prateek Saxena</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Project Page Specific Styles */
+        .project-hero {
+            padding: 8rem 0 4rem;
+            position: relative;
+        }
+        
+        .project-section {
+            padding: 5rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .research-component {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            transition: transform var(--animation-medium) ease, box-shadow var(--animation-medium) ease;
+        }
+        
+        .research-component:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(32, 178, 174, 0.3);
+        }
+        
+        .focus-area {
+            background-color: rgba(10, 16, 30, 0.5);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.1);
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(32, 178, 174, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .icon-circle i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .back-button:hover {
+            background-color: var(--turquoise);
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+
+        .badge-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            background: rgba(32, 178, 174, 0.15);
+            border: 1px solid rgba(32, 178, 174, 0.35);
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+        }
+
+        .highlight-card {
+            background-color: rgba(10, 16, 30, 0.6);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(224, 194, 159, 0.15);
+            padding: 1.5rem;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars"></div>
+
+    <!-- Back to Projects Button -->
+    <a href="index.html#projects" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
+
+    <!-- Project Hero Section -->
+    <section id="hero" class="project-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h1 class="text-center mb-5" data-aos="fade-up">CSIR Energy Dashboard — Optimization & Insights</h1>
+                    <div class="card p-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-8">
+                                <p class="lead mb-4">
+                                    Operational analytics for 35+ CSIR labs: contract demand, load factor, power factor, non-investment savings, and ROI pathways.
+                                </p>
+                                
+                                <div class="d-flex flex-wrap gap-3 mb-4">
+                                    <a href="#modules" class="btn btn-outline-light">
+                                        <i class="fas fa-cubes me-2"></i>See Modules
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4 d-flex align-items-center justify-content-center">
+                                <img src="csir-energy.svg" alt="CSIR Energy Dashboard — Optimization & Insights" class="img-fluid rounded shadow">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Overview Section -->
+    <section id="overview" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Overview</h2>
+                        <p>This dashboard aggregates electrical consumption and billing KPIs across CSIR labs, normalizes data, and surfaces optimization opportunities with interactive drilldowns and narrative summaries. A comparative view shows best-in-class labs and quick wins per site.</p>
+                        <div class="text-end mt-3">
+                            <a href="#objectives" class="text-gold text-decoration-none">Next: Objectives <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives Section -->
+    <section id="objectives" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Objectives</h2>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3"><i class="fas fa-chart-bar text-gold me-3"></i>Track core KPIs: Contract Demand (CD), Load Factor (LF), Power Factor (PF), kWh, kVAh, and penalties/charges.</li>
+                            <li class="mb-3"><i class="fas fa-lightbulb text-gold me-3"></i>Identify zero-capex and low-capex savings opportunities with quantified impact.</li>
+                            <li class="mb-3"><i class="fas fa-balance-scale text-gold me-3"></i>Compare labs on normalized metrics and produce ranked scorecards.</li>
+                            <li class="mb-3"><i class="fas fa-desktop text-gold me-3"></i>Provide clean UX with modals, cards, and guided analyses.</li>
+                        </ul>
+                        <div class="text-end mt-3">
+                            <a href="#modules" class="text-gold text-decoration-none">Next: Modules <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section id="modules" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Modules</h2>
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <h5>Comparative Summary</h5>
+                                    <p>Cross-lab snapshot: highlights best PF/LF, under-utilized CD, and outliers; supports quick drill-downs.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <h5>Optimization Analysis</h5>
+                                    <p>Cards for CD right-sizing, PF correction, TOU shifting, harmonics/MD controls; each opens a modal with assumptions, steps, and ₹/year savings.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <h5>Narrative Explainer</h5>
+                                    <p>Auto-generated, plain-English summary per lab (what to fix, how much it saves, priority level).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-4 mt-2">
+                            <div class="col-lg-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-building me-2"></i>Lab Profiles</h5>
+                                    <p>Per-lab trend lines, tariff notes, penalties, alerts.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-shield-alt me-2"></i>Admin & Login</h5>
+                                    <p>Secure access for stakeholders (Google Sign-In).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#data-model" class="text-gold text-decoration-none">Next: Data Model <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Model Section -->
+    <section id="data-model" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Data Model</h2>
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-8">
+                                <ul class="list-unstyled">
+                                    <li class="mb-3"><i class="fas fa-download text-gold me-3"></i><strong>Inputs:</strong> Monthly bills, AMR logs (kWh/kVAh/MD), PF/LF, penalties, tariff slabs.</li>
+                                    <li class="mb-3"><i class="fas fa-sync text-gold me-3"></i><strong>Processing:</strong> Cleaning, normalization, metric derivation (LF, PF bands), anomaly flags.</li>
+                                    <li class="mb-3"><i class="fas fa-upload text-gold me-3"></i><strong>Outputs:</strong> Cards, modals, ranked tables, narrative summaries, export.</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                    <h5>Data Pipeline</h5>
+                                    <p class="small">ETL process with quality validation</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#optimization-levers" class="text-gold text-decoration-none">Next: Optimization Levers <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optimization Levers Section -->
+    <section id="optimization-levers" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Optimization Levers</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-adjust me-2"></i>Right-size Contract Demand</h5>
+                                    <p>Detect persistent MD below CD; recommend down-contract; show potential ₹/mo saving and payback if revising.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-battery-full me-2"></i>Power-Factor Correction</h5>
+                                    <p>Size capacitor bank to reach target PF (e.g., 0.98); estimate avoided penalties and kVAh charges.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-4 mt-2">
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-clock me-2"></i>Load Shifting (TOU)</h5>
+                                    <p>Move flexible loads off peak; simulate bill under alternate schedules.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-rocket me-2"></i>Quick Wins (Zero-Capex)</h5>
+                                    <p>Set demand alarms, correct billing errors, enforce shutdown schedules; immediate ₹ impact.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#rankings" class="text-gold text-decoration-none">Next: Rankings <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rankings Section -->
+    <section id="rankings" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Rankings</h2>
+                        <p class="mb-4">Star-rating/leaderboard system for lab performance comparison:</p>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Lab</th>
+                                        <th>PF</th>
+                                        <th>LF</th>
+                                        <th>CD-Utilization</th>
+                                        <th>Estimated Savings Band</th>
+                                        <th>Rating</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>CSIR-IIP</td>
+                                        <td>0.95</td>
+                                        <td>0.82</td>
+                                        <td>88%</td>
+                                        <td>₹50K-₹75K</td>
+                                        <td>⭐⭐⭐⭐⭐</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CSIR-NEERI</td>
+                                        <td>0.91</td>
+                                        <td>0.75</td>
+                                        <td>72%</td>
+                                        <td>₹75K-₹100K</td>
+                                        <td>⭐⭐⭐⭐</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CSIR-NCL</td>
+                                        <td>0.87</td>
+                                        <td>0.68</td>
+                                        <td>65%</td>
+                                        <td>₹100K+</td>
+                                        <td>⭐⭐⭐</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <p class="small text-muted">*Ratings are relative to peer distribution and data completeness.</p>
+                        <div class="text-end mt-3">
+                            <a href="#auth" class="text-gold text-decoration-none">Next: Authentication <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Auth Section -->
+    <section id="auth" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Authentication</h2>
+                        <p class="mb-4">Google Sign-In with Firebase Auth, including environment diagnostics (authorized domains, HTTPS, pop-ups, provider checks) for quick setup/debug.</p>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-check-circle text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                    <h6>Environment Check</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-cogs text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                    <h6>Config Completeness</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-play-circle text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                    <h6>Provider Init</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-browser text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                    <h6>Browser Compatibility</h6>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-globe text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                    <h6>Authorized Domains</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#results" class="text-gold text-decoration-none">Next: Results <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Results</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-chart-pie me-2"></i>Comparative Gain</h5>
+                                    <p>Several labs can reduce monthly bills via CD right-sizing and PF correction; narrative summaries quantify lab-wise ₹ savings and priority tiers.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-mouse-pointer me-2"></i>UX Adoption</h5>
+                                    <p>Modal-based analysis with animated emphasis (energy lines/particles) improves discoverability without changing theme.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#roadmap" class="text-gold text-decoration-none">Next: Roadmap <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Roadmap</h2>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3"><i class="fas fa-file-export text-gold me-3"></i>Add export (PDF/CSV) for per-lab summary packs.</li>
+                            <li class="mb-3"><i class="fas fa-users-cog text-gold me-3"></i>Role-based views (Directorate vs Lab Admin vs Auditor).</li>
+                            <li class="mb-3"><i class="fas fa-chart-bar text-gold me-3"></i>Benchmarks by lab category (R&D/Process-heavy/Office-centric).</li>
+                            <li class="mb-3"><i class="fas fa-bell text-gold me-3"></i>Alerts for PF < threshold / MD spikes / billing anomalies.</li>
+                        </ul>
+                        <div class="text-end mt-3">
+                            <a href="#deliverables" class="text-gold text-decoration-none">Next: Deliverables <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deliverables Section -->
+    <section id="deliverables" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Deliverables</h2>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3"><i class="fas fa-chart-line text-gold me-3"></i>Interactive dashboard with optimization modals & narrative summaries.</li>
+                            <li class="mb-3"><i class="fas fa-trophy text-gold me-3"></i>Comparative summary and rankings views.</li>
+                            <li class="mb-3"><i class="fas fa-shield-alt text-gold me-3"></i>Secure login (Google) + diagnostics helper page.</li>
+                        </ul>
+                        <div class="text-end mt-3">
+                            <a href="#attribution" class="text-gold text-decoration-none">Next: Attribution <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attribution Section -->
+    <section id="attribution" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Attribution</h2>
+                        <p>Developed during CSIR-IIP internship (Climate Change & Data Science). Dashboard UI/UX, optimization logic, and lab ranking methodology by Prateek Saxena.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/heyy-Prateek"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/prateek-saxena-35845219a/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:f20212756@pilani.bits-pilani.ac.in"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="text-align: center; font-size: 0.8rem; opacity: 0.7;">
+              Ac 2025 Prateek Saxena. All rights reserved. Original visual theme and code custom-built. Please do not replicate without permission.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        function generateStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                const size = Math.random() * 3;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 3 + Math.random() * 4;
+                const opacity = 0.2 + Math.random() * 0.8;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.animationDelay = `${delay}s`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.opacity = opacity;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            generateStars();
+            
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+
+    <!-- Floating Game Button -->
+    <a href="deep-space-explorer-heavygfx.html" class="play-game-btn" aria-label="Play Deep Space">Play Game</a>
+    <style>
+      .play-game-btn{
+        position:fixed; right:18px; bottom:18px; z-index:9999;
+        padding:.7rem 1rem; border-radius:999px; text-decoration:none;
+        background: var(--turquoise, #20b2ae); color: var(--text-dark, #0a101e);
+        font-weight:700; border:1px solid rgba(224,194,159,.25);
+        box-shadow:0 10px 24px rgba(0,0,0,.35), 0 0 16px rgba(32,178,174,.25);
+        transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
+      }
+      .play-game-btn:hover{ background:#42ccc8; transform: translateY(-1px); }
+      .play-game-btn:active{ transform: translateY(1px); }
+    </style>
+</body>
+</html>

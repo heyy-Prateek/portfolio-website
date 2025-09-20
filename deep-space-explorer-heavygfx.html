@@ -68,6 +68,26 @@
     .btn:active{ transform: translateY(1px); }
     .help{ position:fixed; right:14px; bottom:14px; z-index:2; font-size:.9rem;
       background:var(--glass); border:1px solid var(--border); border-radius:12px; padding:.4rem .6rem; opacity:.9; pointer-events:none; }
+
+    /* Animation for Hull counter (red flash) */
+    @keyframes hullFlash {
+      0% { color: #e5e7eb; }
+      50% { color: #ff4444; text-shadow: 0 0 10px #ff4444; }
+      100% { color: #e5e7eb; }
+    }
+    .hull-flash {
+      animation: hullFlash 0.6s ease-in-out;
+    }
+
+    /* Animation for Discoveries counter (green glow) */
+    @keyframes discoveryGlow {
+      0% { color: #e5e7eb; }
+      50% { color: #22c55e; text-shadow: 0 0 15px #22c55e; }
+      100% { color: #e5e7eb; }
+    }
+    .discovery-glow {
+      animation: discoveryGlow 0.8s ease-in-out;
+    }
   </style>
 </head>
 <body>
@@ -84,7 +104,7 @@
 
   <div class="center-overlay" id="startOverlay">
     <div class="panel">
-      <h1>Deep Space: Explorer (Heavy Graphics)</h1>
+      <h1>Deep Space: Explorer</h1>
       <p>Explore nebulae, galaxies, black holes, comet trails and ancient stations. Battles are rare encounters; your mission is discovery.</p>
       <button class="btn" id="btnStart">Launch</button>
     </div>
@@ -460,6 +480,9 @@
         if(nearby.length){
           discoveries += nearby.length;
           discEl.textContent = discoveries;
+          // Add green glow animation to Discoveries counter
+          discEl.classList.add('discovery-glow');
+          setTimeout(() => discEl.classList.remove('discovery-glow'), 800);
         }
       }
 
@@ -519,7 +542,12 @@
         enemies.forEach(e => {
           if(rectsOverlap({x:b.x-3,y:b.y,w:b.w,h:b.h},{x:e.x-e.w/2,y:e.y-e.h/2,w:e.w,h:e.h})){
             e.hp -= 1; b.y = -999;
-            if(e.hp<=0){ addExplosion(e.x, e.y); e.y = H + 999; discoveries += 1; discEl.textContent = discoveries; } // reward: log as discovery
+            if(e.hp<=0){ 
+              addExplosion(e.x, e.y); e.y = H + 999; discoveries += 1; discEl.textContent = discoveries;
+              // Add green glow animation to Discoveries counter
+              discEl.classList.add('discovery-glow');
+              setTimeout(() => discEl.classList.remove('discovery-glow'), 800);
+            } // reward: log as discovery
           }
         });
       });
@@ -530,7 +558,11 @@
         if(rectsOverlap({x:b.x-3,y:b.y,w:b.w,h:b.h},{x:player.x-18,y:player.y-24,w:36,h:48})){
           if(player.shield===0){
             b.y = H + 999; addExplosion(player.x, player.y, 'rgba(255,100,100,1)');
-            player.lives--; livesEl.textContent = player.lives; if(player.lives<=0) return endGame();
+            player.lives--; livesEl.textContent = player.lives;
+            // Add red flash animation to Hull counter
+            livesEl.classList.add('hull-flash');
+            setTimeout(() => livesEl.classList.remove('hull-flash'), 600);
+            if(player.lives<=0) return endGame();
           } else { b.y = H + 999; }
         }
       }

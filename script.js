@@ -39,6 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize mobile navigation
         initMobileNav();
+
+        // Initialize project transition overlay
+        initProjectTransitions();
         
         // Flag that components are initialized
         window.componentsInitialized = true;
@@ -216,29 +219,47 @@ function initProjectFilter() {
     const projectItems = document.querySelectorAll('.project-card-container');
     
     if (filterButtons.length && projectItems.length) {
+        // Ensure all projects are visible initially
+        projectItems.forEach(item => {
+            item.style.display = 'block';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+            item.classList.add('visible');
+        });
+        
         filterButtons.forEach(btn => {
             if (!btn.hasAttribute('data-filter-init')) {
                 btn.setAttribute('data-filter-init', 'true');
                 btn.addEventListener('click', function() {
                     const filterValue = this.getAttribute('data-filter');
+                    console.log('Filter clicked:', filterValue); // Debug log
                     
                     // Update active button
                     filterButtons.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Filter projects
+                    // Filter projects with smooth animation
                     projectItems.forEach(item => {
-                        if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                        const shouldShow = filterValue === 'all' || item.classList.contains(filterValue);
+                        console.log('Project classes:', item.classList.toString(), 'Should show:', shouldShow); // Debug log
+                        
+                        if (shouldShow) {
+                            // Show the project
                             item.style.display = 'block';
+                            item.classList.add('visible');
+                            // Small delay for smooth appearance
                             setTimeout(() => {
                                 item.style.opacity = '1';
                                 item.style.transform = 'translateY(0)';
                             }, 50);
                         } else {
+                            // Hide the project
                             item.style.opacity = '0';
                             item.style.transform = 'translateY(20px)';
+                            // Hide after transition completes
                             setTimeout(() => {
                                 item.style.display = 'none';
+                                item.classList.remove('visible');
                             }, 300);
                         }
                     });
@@ -370,48 +391,94 @@ function initDarkModeToggle() {
         });
     }
 }
-const projectLinks = document.querySelectorAll(".view-project");
+function initProjectTransitions() {
+    const overlay = document.getElementById('transition-overlay');
+    const text = document.getElementById('transition-text');
+    const gif = document.getElementById('transition-gif');
+    const links = document.querySelectorAll('.view-project');
 
-projectLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const overlay = document.getElementById("transition-overlay");
-        const text = document.getElementById("transition-text");
-        const gifContainer = document.getElementById("transition-gif-container");
-        const gif = document.getElementById("transition-gif");
+    if (!overlay || !text || !gif || !links.length) {
+        return;
+    }
 
-        if (link.dataset.project === "bioplastic") {
-            text.textContent = "Next station: A sustainable planet 🌱";
-            gif.src = "earth.gif";
-        } else if (link.dataset.project === "hartree") {
-            text.textContent = "Warping into quantum space-time... 🌀";
-            gif.src = "warp.gif";
-        } else if (link.dataset.project === "lab") {
-            text.textContent = "Loading your lab goggles... 🧪";
-            gif.src = "flask.gif";
+    const transitionPresets = {
+        default: {
+            text: 'Preparing for launch...',
+            gif: 'rocket.png',
+            alt: 'Rocket launch animation',
+            delay: 4000
+        },
+        bioplastic: {
+            text: 'Next station: a sustainable planet.',
+            gif: 'earth.gif',
+            alt: 'Earth orbit animation',
+            delay: 4000
+        },
+        hartree: {
+            text: 'Warping into quantum space-time...',
+            gif: 'warp.gif',
+            alt: 'Warp tunnel animation',
+            delay: 4000
+        },
+        lab: {
+            text: 'Loading your lab goggles...',
+            gif: 'flask.gif',
+            alt: 'Lab experiment animation',
+            delay: 4000
+        },
+        'ai-dashboard': {
+            text: 'Spinning up climate intelligence...',
+            gif: 'earth.gif',
+            alt: 'Earth orbit animation',
+            delay: 4200
+        },
+        'csir-energy': {
+            text: 'Optimizing CSIR energy clusters...',
+            gif: 'warp.gif',
+            alt: 'Warp tunnel animation',
+            delay: 4200
+        },
+        'quiz-platform': {
+            text: 'Activating monetized learning suite...',
+            gif: 'flask.gif',
+            alt: 'Lab experiment animation',
+            delay: 4200
         }
-        
+    };
 
-overlay.classList.add("active");
-
-        let message = "Preparing for launch...";
-
-        if (link.dataset.project === "bioplastic") {
-            message = "Next station: A sustainable planet 🌱";
-        } else if (link.dataset.project === "hartree") {
-            message = "Warping into quantum space-time... 🌀";
-        } else if (link.dataset.project === "lab") {
-            message = "Loading your lab goggles... 🧪";
+    links.forEach(link => {
+        if (link.hasAttribute('data-transition-init')) {
+            return;
         }
 
-        text.textContent = message;
-        overlay.classList.add("active");
+        link.setAttribute('data-transition-init', 'true');
 
-        setTimeout(() => {
-            window.location.href = link.getAttribute("href");
-        }, 5000);
+        link.addEventListener('click', event => {
+            event.preventDefault();
+
+            const preset = transitionPresets[link.dataset.project] || transitionPresets.default;
+
+            text.textContent = preset.text;
+
+            if (preset.gif) {
+                gif.src = preset.gif;
+                gif.alt = preset.alt;
+                gif.style.display = 'block';
+            } else {
+                gif.removeAttribute('src');
+                gif.alt = '';
+                gif.style.display = 'none';
+            }
+
+            overlay.classList.add('active');
+
+            setTimeout(() => {
+                window.location.href = link.getAttribute('href');
+            }, preset.delay || 4000);
+        });
     });
-});
+}
+
 // Initialize AOS animations
 function initAOS() {
     if (typeof AOS !== 'undefined') {
@@ -440,6 +507,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initFormValidation();
     initDarkModeToggle();
     initMobileNav();
+    initProjectTransitions();
     
     // Initialize libraries if available
     setTimeout(() => {

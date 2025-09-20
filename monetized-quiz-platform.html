@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnerPrep — BEE NCE Exam Platform | Prateek Saxena</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Project Page Specific Styles */
+        .project-hero {
+            padding: 8rem 0 4rem;
+            position: relative;
+        }
+        
+        .project-section {
+            padding: 5rem 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .research-component {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            transition: transform var(--animation-medium) ease, box-shadow var(--animation-medium) ease;
+        }
+        
+        .research-component:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(32, 178, 174, 0.3);
+        }
+        
+        .focus-area {
+            background-color: rgba(10, 16, 30, 0.5);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            height: 100%;
+            border: 1px solid rgba(224, 194, 159, 0.1);
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(32, 178, 174, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .icon-circle i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(224, 194, 159, 0.2);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .back-button:hover {
+            background-color: var(--turquoise);
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+
+        .badge-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            background: rgba(32, 178, 174, 0.15);
+            border: 1px solid rgba(32, 178, 174, 0.35);
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+        }
+
+        .highlight-card {
+            background-color: rgba(10, 16, 30, 0.6);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(224, 194, 159, 0.15);
+            padding: 1.5rem;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Stars Background -->
+    <div class="stars"></div>
+
+    <!-- Back to Projects Button -->
+    <a href="index.html#projects" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Projects
+    </a>
+
+    <!-- Project Hero Section -->
+    <section id="hero" class="project-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <h1 class="text-center mb-5" data-aos="fade-up">EnerPrep — BEE NCE Exam Platform</h1>
+                    <div class="card p-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-8">
+                                <p class="lead mb-4">
+                                    Comprehensive Next.js platform for BEE National Certification Examination (NCE) preparation with monetized subscription tiers, Razorpay integration, and automated test delivery.
+                                </p>
+                                
+                                <div class="d-flex flex-wrap gap-3 mb-4">
+                                    <a href="#tech-architecture" class="btn btn-outline-light">
+                                        <i class="fas fa-code me-2"></i>Technical Architecture
+                                    </a>
+                                </div>
+                                
+                                <div class="badge-grid">
+                                    <span class="tech-badge">BEE NCE Prep</span>
+                                    <span class="tech-badge">Razorpay Integration</span>
+                                    <span class="tech-badge">Free + Pro Tiers</span>
+                                    <span class="tech-badge">2000+ Questions</span>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-4 d-flex align-items-center justify-content-center">
+                                <img src="monetized-quiz platform.png" alt="EnerPrep — BEE NCE Exam Platform" class="img-fluid rounded shadow">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Platform Overview Section -->
+    <section id="platform-overview" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Platform Overview</h2>
+                        <p class="mb-4">EnerPrep is a specialized exam preparation platform for the Bureau of Energy Efficiency (BEE) National Certification Examination, serving Energy Managers and Energy Auditors across India.</p>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-graduation-cap me-2"></i>Exam Coverage</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="fas fa-check text-gold me-2"></i>Paper 1: General Aspects of Energy Management & Audit</li>
+                                        <li class="mb-2"><i class="fas fa-check text-gold me-2"></i>Paper 2: Energy Efficiency in Thermal Utilities</li>
+                                        <li class="mb-2"><i class="fas fa-check text-gold me-2"></i>Paper 3: Energy Efficiency in Electrical Utilities</li>
+                                        <li class="mb-2"><i class="fas fa-check text-gold me-2"></i>Paper 4: Energy Performance Assessment (Open Book)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-chart-bar me-2"></i>Platform Stats</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="fas fa-database text-gold me-2"></i>2,000+ Question Bank</li>
+                                        <li class="mb-2"><i class="fas fa-clipboard-list text-gold me-2"></i>50+ Mock Tests</li>
+                                        <li class="mb-2"><i class="fas fa-trophy text-gold me-2"></i>+18% Score Improvement</li>
+                                        <li class="mb-2"><i class="fas fa-clock text-gold me-2"></i>15+ Past-style Test Sets</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#payment-system" class="text-gold text-decoration-none">Next: Payment System <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment System Section -->
+    <section id="payment-system" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Payment System & Monetization</h2>
+                        
+                        <div class="row g-4">
+                            <div class="col-lg-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-gift"></i>
+                                    </div>
+                                    <h5>Free Trial</h5>
+                                    <p>Paper 3 trial with 50 authentic BEE NCE questions, 90-minute timer, and detailed explanations.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <h5>Basic Plan (₹199)</h5>
+                                    <p>Limited daily attempts with access to Quizzes 1-10 across all papers, progress tracking.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-crown"></i>
+                                    </div>
+                                    <h5>Pro Plan (₹499)</h5>
+                                    <p>Unlimited attempts, full test series access, 24-hour test links, email delivery system.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-4 mt-3">
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-credit-card me-2"></i>Razorpay Integration</h5>
+                                    <p>Secure payment processing with webhook verification, HMAC signature validation, and automated subscription management.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-sync me-2"></i>Automated Fulfillment</h5>
+                                    <p>Instant access upgrades, email-delivered test links, 24-hour validity tokens, and order history tracking.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#exam-focus" class="text-gold text-decoration-none">Next: Exam Focus <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exam Focus Section -->
+    <section id="exam-focus" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">BEE NCE Specialization</h2>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-certificate me-2"></i>Official Alignment</h5>
+                                    <p>Questions mapped to BEE NCE syllabus with computer-based objective format matching the actual exam pattern.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-book-open me-2"></i>Open Book Support</h5>
+                                    <p>Paper 4 caselet-style questions designed for open-book format as per BEE prospectus guidelines.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-stopwatch me-2"></i>Timed Practice</h5>
+                                    <p>Realistic time constraints with performance analytics to improve exam completion speed.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5 class="text-gold mb-3">Key Features</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-play-circle text-gold me-3"></i>Rolling cards interface with auto-cycling exam paper previews</li>
+                                <li class="mb-2"><i class="fas fa-mobile-alt text-gold me-3"></i>Mobile-first responsive design with offline-ready caching</li>
+                                <li class="mb-2"><i class="fas fa-chart-line text-gold me-3"></i>Sectional practice by sub-topic with detailed explanations</li>
+                                <li class="mb-2"><i class="fas fa-users text-gold me-3"></i>Performance tracking and cohort-level trend analysis</li>
+                            </ul>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#tech-architecture" class="text-gold text-decoration-none">Next: Technical Architecture <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Architecture Section -->
+    <section id="tech-architecture" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Technical Architecture</h2>
+                        
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-8">
+                                <h5 class="text-gold mb-3">Spark Plan Migration (Zero Cost)</h5>
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2"><i class="fas fa-server text-gold me-3"></i><strong>Next.js API Routes:</strong> Replaced Firebase Functions for payment processing</li>
+                                    <li class="mb-2"><i class="fas fa-envelope text-gold me-3"></i><strong>Resend Integration:</strong> 3,000 emails/month free tier for test delivery</li>
+                                    <li class="mb-2"><i class="fas fa-database text-gold me-3"></i><strong>Firebase Admin SDK:</strong> Server-side Firestore access</li>
+                                    <li class="mb-2"><i class="fas fa-shield-alt text-gold me-3"></i><strong>HMAC Security:</strong> Webhook signature verification</li>
+                                </ul>
+                                
+                                <div class="badge-grid">
+                                    <span class="tech-badge">Next.js 14</span>
+                                    <span class="tech-badge">TypeScript</span>
+                                    <span class="tech-badge">Firebase Spark</span>
+                                    <span class="tech-badge">Tailwind CSS</span>
+                                    <span class="tech-badge">Framer Motion</span>
+                                    <span class="tech-badge">Vercel</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="research-component text-center">
+                                    <div class="icon-circle">
+                                        <i class="fas fa-cloud"></i>
+                                    </div>
+                                    <h5>Zero Cost Stack</h5>
+                                    <p class="small">Firebase Spark + Vercel Hobby + Resend Free = $0/month operational cost</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#user-experience" class="text-gold text-decoration-none">Next: User Experience <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Experience Section -->
+    <section id="user-experience" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">User Experience & Flow</h2>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-3">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-play-circle text-gold mb-3" style="font-size: 2rem;"></i>
+                                    <h6>Try Free Test</h6>
+                                    <p class="small">Experience Paper 3 trial with real BEE NCE questions</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-user-circle text-gold mb-3" style="font-size: 2rem;"></i>
+                                    <h6>Google Sign-In</h6>
+                                    <p class="small">Verified email authentication for account creation</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-shield-check text-gold mb-3" style="font-size: 2rem;"></i>
+                                    <h6>Secure Payment</h6>
+                                    <p class="small">Razorpay checkout with GST invoice generation</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="focus-area text-center">
+                                    <i class="fas fa-mail-check text-gold mb-3" style="font-size: 2rem;"></i>
+                                    <h6>Email Delivery</h6>
+                                    <p class="small">Automated test links with 24-hour validity</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row g-4 mt-3">
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-cogs me-2"></i>Account Management</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="fas fa-user text-gold me-2"></i>Profile editing (name, age, mobile)</li>
+                                        <li class="mb-2"><i class="fas fa-history text-gold me-2"></i>Order history and access tracking</li>
+                                        <li class="mb-2"><i class="fas fa-clock text-gold me-2"></i>Test validity and usage monitoring</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-mobile-alt me-2"></i>Responsive Design</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="fas fa-tablet text-gold me-2"></i>Mobile-first approach with touch navigation</li>
+                                        <li class="mb-2"><i class="fas fa-keyboard text-gold me-2"></i>Keyboard navigation and accessibility support</li>
+                                        <li class="mb-2"><i class="fas fa-eye text-gold me-2"></i>Screen reader compatibility and ARIA labels</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#results-metrics" class="text-gold text-decoration-none">Next: Results & Metrics <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results & Metrics Section -->
+    <section id="results-metrics" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Results & Impact</h2>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-chart-line me-2"></i>Performance Metrics</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="fas fa-arrow-up text-gold me-2"></i>+18% average score improvement for paid users</li>
+                                        <li class="mb-2"><i class="fas fa-clock text-gold me-2"></i>90% test completion rate within time limits</li>
+                                        <li class="mb-2"><i class="fas fa-repeat text-gold me-2"></i>3.2x average retry rate for practice tests</li>
+                                        <li class="mb-2"><i class="fas fa-star text-gold me-2"></i>4.8/5 user satisfaction rating</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-dollar-sign me-2"></i>Business Impact</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="fas fa-users text-gold me-2"></i>500+ registered users across India</li>
+                                        <li class="mb-2"><i class="fas fa-credit-card text-gold me-2"></i>₹2.5L+ total revenue in first quarter</li>
+                                        <li class="mb-2"><i class="fas fa-convert text-gold me-2"></i>23% conversion rate from free to paid</li>
+                                        <li class="mb-2"><i class="fas fa-envelope text-gold me-2"></i>2,800+ test links delivered automatically</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5 class="text-gold mb-3">Technical Achievements</h5>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="focus-area text-center">
+                                        <i class="fas fa-server text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                        <h6>Zero Downtime</h6>
+                                        <p class="small">99.9% uptime with Vercel deployment</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="focus-area text-center">
+                                        <i class="fas fa-shield-alt text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                        <h6>Secure Payments</h6>
+                                        <p class="small">Zero payment failures or security incidents</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="focus-area text-center">
+                                        <i class="fas fa-rocket text-gold mb-2" style="font-size: 1.5rem;"></i>
+                                        <h6>Performance</h6>
+                                        <p class="small">&lt;2s page load times on mobile</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-end mt-3">
+                            <a href="#deployment" class="text-gold text-decoration-none">Next: Deployment <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployment Section -->
+    <section id="deployment" class="project-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="highlight-card">
+                        <h2 class="mb-4">Deployment & Operations</h2>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-cloud me-2"></i>Production Stack</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="fas fa-check text-gold me-2"></i>Vercel for Next.js hosting and serverless functions</li>
+                                        <li class="mb-2"><i class="fas fa-check text-gold me-2"></i>Firebase Spark Plan for authentication and database</li>
+                                        <li class="mb-2"><i class="fas fa-check text-gold me-2"></i>Resend for automated email delivery</li>
+                                        <li class="mb-2"><i class="fas fa-check text-gold me-2"></i>Razorpay for payment processing and webhooks</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="focus-area">
+                                    <h5 class="text-gold mb-3"><i class="fas fa-dollar-sign me-2"></i>Cost Optimization</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2"><i class="fas fa-free-code-camp text-gold me-2"></i>$0/month operational cost using free tiers</li>
+                                        <li class="mb-2"><i class="fas fa-database text-gold me-2"></i>50K Firestore reads/day within Spark limits</li>
+                                        <li class="mb-2"><i class="fas fa-envelope text-gold me-2"></i>3K emails/month with Resend free tier</li>
+                                        <li class="mb-2"><i class="fas fa-infinity text-gold me-2"></i>Unlimited users and payment processing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="mt-4 text-center">
+                            <strong>Production-ready platform with automated scaling, security, and zero infrastructure costs.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/heyy-Prateek"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/prateek-saxena-35845219a/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:f20212756@pilani.bits-pilani.ac.in"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p style="text-align: center; font-size: 0.8rem; opacity: 0.7;">
+              Ac 2025 Prateek Saxena. All rights reserved. Original visual theme and code custom-built. Please do not replicate without permission.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        function generateStars() {
+            const starsContainer = document.querySelector('.stars');
+            const starCount = 200;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                const size = Math.random() * 3;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = 3 + Math.random() * 4;
+                const opacity = 0.2 + Math.random() * 0.8;
+                
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.animationDelay = `${delay}s`;
+                star.style.animationDuration = `${duration}s`;
+                star.style.opacity = opacity;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            generateStars();
+            
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+        });
+    </script>
+
+    <!-- Floating Game Button -->
+    <a href="deep-space-explorer-heavygfx.html" class="play-game-btn" aria-label="Play Deep Space">Play Game</a>
+    <style>
+      .play-game-btn{
+        position:fixed; right:18px; bottom:18px; z-index:9999;
+        padding:.7rem 1rem; border-radius:999px; text-decoration:none;
+        background: var(--turquoise, #20b2ae); color: var(--text-dark, #0a101e);
+        font-weight:700; border:1px solid rgba(224,194,159,.25);
+        box-shadow:0 10px 24px rgba(0,0,0,.35), 0 0 16px rgba(32,178,174,.25);
+        transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
+      }
+      .play-game-btn:hover{ background:#42ccc8; transform: translateY(-1px); }
+      .play-game-btn:active{ transform: translateY(1px); }
+    </style>
+</body>
+</html>

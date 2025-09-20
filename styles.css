@@ -1,5 +1,74 @@
 /* Space Theme Portfolio Styles */
 
+/* ========== Skills Section Styles ========== */
+.skills-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    width: 100px;
+    margin: 0.5rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+.skill-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.skill-icon-font {
+    font-size: 48px;
+    margin-bottom: 0.5rem;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover .skill-icon,
+.skill-item:hover .skill-icon-font {
+    transform: scale(1.1);
+}
+
+.skill-name {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-align: center;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+/* Skills section responsive */
+@media (max-width: 768px) {
+    .skills-grid {
+        gap: 1rem !important;
+    }
+    
+    .skill-item {
+        width: 80px;
+        margin: 0.3rem;
+    }
+    
+    .skill-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .skill-icon-font {
+        font-size: 40px;
+    }
+    
+    .skill-name {
+        font-size: 0.75rem;
+    }
+}
+
 /* ========== Variables ========== */
 :root {
     /* Colors */
